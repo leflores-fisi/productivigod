@@ -1,0 +1,119 @@
+:root {
+  --header-height: 60px;
+  --aside-width: 300px;
+
+  --header-primary: #e6e2dd;
+  --header-secondary: #e9e4dd;
+  --background-primary: #eeece7;
+  --background-secondary: #dad6ce;
+  --aside-primary: #e1ddd8;
+  --aside-secondary: #dbd8ce;
+
+  --text-normal: ;
+  --text-link: ;
+
+  --desktop: 1200px;
+  --laptop: 1024px;
+  --tablet-landscape: 768px;
+  --tablet-portrait: 480px;
+  --phone-landscape: 320px;
+  --phone-portrait: 0px;
+}
+
+.app {
+  display: flex;
+  text-align: center;
+  height: 100vh;
+}
+
+.side-bar {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  position: sticky;
+  top: 0;
+
+  transition: width 0.2s;
+  background-color: var(--aside-primary);
+  width: var(--aside-width);
+
+  .side-bar-switcher {
+    position: absolute;
+    right: -20px;
+    top: 5px;
+
+    outline: 1px black solid;
+
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  &__panel {
+    display: flex;
+    justify-content: center;
+
+    height: 60px;
+    padding-top: 15px;
+    transition: opacity 0.1s;
+    overflow: hidden;
+
+    .user {
+      display: block;
+    }
+  }
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+
+    transition-delay: 0.1s;
+    transition: opacity 0.1s;
+    overflow: hidden;
+  }
+  &.hidden {
+    width: 0;
+    transition-delay: 0;
+    .side-bar__panel, .side-bar__nav-list, .toggle-theme {
+      transition-delay: 0;
+      width: 0;
+      opacity: 0;
+
+    }
+  }
+}
+
+.app__container {
+
+  width: 100%;
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: var(--header-height);
+
+    background-color: var(--header-primary);
+    color: white;
+  }
+  .content {
+    display: flex;
+
+    background-color: var(--background-primary);
+    height: calc(100% - var(--header-height));
+
+    .window {
+      width: calc(100% - var(--aside-width));
+      padding: 0 100px;
+    }
+
+    .tools {
+      width: var(--aside-width);
+      height: 100%;
+      background-color: #ebe6e1;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+
+.side-bar__nav-list {
+
+  .nav-item {
+  
+    display: flex;
+    justify-self: center;
+    align-items: center;
+  
+    height: 30px;
+    width: 100%;
+    cursor: pointer;
+  
+    span {
+      margin-left: 15px;
+    }
+    li {
+      margin-left: 5px;
+      text-decoration: none;
+      list-style: none;
+    }
+  
+    &:hover {
+      background-color: var(--aside-secondary);
+    }
+    &.selected {
+      background-color: rgb(216, 211, 201);
+    }
+  }
+}
