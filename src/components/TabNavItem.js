@@ -1,7 +1,7 @@
 import { Link } from 'wouter';
 import '../styles/NavItem.scss'
 
-function TabNavItem({path, icon = '❔', name, subtabs}) {
+function TabNavItem({path, icon = '❔', title, subtabs}) {
 
   const handleClick = () => {
     console.info('Setting tab to', path)
@@ -9,10 +9,14 @@ function TabNavItem({path, icon = '❔', name, subtabs}) {
 
   return (
     <Link to={path} onClick={handleClick}>
-      <div className={'nav-item ' + path}>
-        <span>{icon}</span>
-        <li>{name}</li>
-      </div>
+      <li className={'nav-item ' + path}>
+          <span className='nav-item__icon'>
+            {icon}
+          </span>
+          <div className='nav-item__title'>
+            {title}
+          </div>
+      </li>
     </Link>
   );
 }

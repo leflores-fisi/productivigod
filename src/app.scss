@@ -1,28 +1,6 @@
-:root {
-  --header-height: 60px;
-  --aside-width: 300px;
-
-  --header-primary: #e6e2dd;
-  --header-secondary: #e9e4dd;
-  --background-primary: #eeece7;
-  --background-secondary: #dad6ce;
-  --aside-primary: #e1ddd8;
-  --aside-secondary: #dbd8ce;
-
-  --text-normal: ;
-  --text-link: ;
-
-  --desktop: 1200px;
-  --laptop: 1024px;
-  --tablet-landscape: 768px;
-  --tablet-portrait: 480px;
-  --phone-landscape: 320px;
-  --phone-portrait: 0px;
-}
 
 .app {
   display: flex;
-  text-align: center;
   height: 100vh;
 }
 
@@ -99,18 +77,34 @@
     background-color: var(--header-primary);
     color: white;
   }
-  .content {
+  .app-content {
     display: flex;
 
     background-color: var(--background-primary);
     height: calc(100% - var(--header-height));
 
     .tab {
+      display: flex;
+      flex-direction: column;
       width: calc(100% - var(--aside-width));
-      padding: 0 100px;
-    }
+      padding: 20px 100px 0 100px;
+      margin: 0 auto;
 
-    .tools {
+      &__header {
+        margin-bottom: 20px;
+        &__title {
+          display: flex;
+          font-size: 1.3em;
+          font-weight: 600;
+          margin-bottom: 5px;
+          span {margin-right: 4px;}
+        }
+        &__desc {
+          font-size: 0.8em;
+        }
+      }
+    }
+    .gadgets {
       width: var(--aside-width);
       height: 100%;
       background-color: #ebe6e1;

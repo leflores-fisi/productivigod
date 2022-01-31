@@ -1,4 +1,30 @@
+:root {
 
+  font-size: 16px;
+
+  // Sizing
+  --header-height: 60px;
+  --aside-width: 300px;
+
+  // Colors
+  --header-primary: #e6e2dd;
+  --header-secondary: #e9e4dd;
+  --background-primary: #eeece7;
+  --background-secondary: #dad6ce;
+  --aside-primary: #e1ddd8;
+  --aside-secondary: #dbd8ce;
+
+  --text-normal: ;
+  --text-link: ;
+
+  // Resolutions
+  --desktop: 1200px;
+  --laptop: 1024px;
+  --tablet-landscape: 768px;
+  --tablet-portrait: 480px;
+  --phone-landscape: 320px;
+  --phone-portrait: 0px;
+}
 
 body {
   background-image: url('chrome://global/skin/media/imagedoc-darknoise.png');
@@ -11,6 +37,9 @@ body {
 
 * {
   transition: background-color 0.1s, color 0.1s;
+}
+li {
+  list-style: none;
 }
 
 code {

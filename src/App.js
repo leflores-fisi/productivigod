@@ -47,7 +47,7 @@ function App() {
           <header className='app-header'>
           </header>
 
-          <div className='content'>
+          <div className='app-content'>
             <main className='tab'>
               <Route path='/tasks/:group?' component={Tasks}/>
               <Route path='/notebook/:note?' component={Notebook}/>

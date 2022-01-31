@@ -15,18 +15,18 @@ const AppSession = {
           title: 'College',
           path: '/college',
           content: {
-            design: 'TABLE',
+            design: 'BOARD',
             groups: [
               {
                 title: 'To Do',
                 todos: [
                   {
                     text: 'Test the app',
-                    status: 'COMPLETED'
+                    status: 'Completed'
                   },
                   {
                     text: 'See this',
-                    status: 'COMPLETED'
+                    status: 'Uncompleted'
                   }
                 ]
               },
@@ -35,7 +35,7 @@ const AppSession = {
                 todos: [
                   {
                     text: 'Programming like a goat',
-                    status: 'COMPLETED'
+                    status: 'Completed'
                   }
                 ]
               },
@@ -44,7 +44,7 @@ const AppSession = {
                 todos: [
                   {
                     text: 'Nothing yet but soon',
-                    status: 'UNCOMPLETED'
+                    status: 'Uncompleted'
                   }
                 ]
               }
@@ -62,8 +62,8 @@ const AppSession = {
                 title: 'Ideas',
                 todos: [
                   {
-                    text: 'Implement login',
-                    status: 'UNCOMPLETED'
+                    text: 'Need to implement login',
+                    status: 'Uncompleted'
                   }
                 ]
               },
@@ -72,7 +72,7 @@ const AppSession = {
                 todos: [
                   {
                     text: 'Say welcome to the frustred dreams',
-                    status: 'COMPLETED'
+                    status: 'Completed'
                   }
                 ]
               }

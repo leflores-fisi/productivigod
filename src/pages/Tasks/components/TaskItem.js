@@ -3,9 +3,12 @@ function TaskItem({text, status}) {
 
   return (
     <li className='task'>
-      <input type='checkbox'/>
-      <div>{text}</div>
-      <span>{status}</span>
+      <span className='task__status'>
+        <div>
+          {status}
+        </div>  
+      </span>
+      <div className='task__text'>{text}</div>
     </li>
   )
 }

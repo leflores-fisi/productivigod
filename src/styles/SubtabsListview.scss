@@ -1,0 +1,27 @@
+
+.subtabs-listview {
+  display: flex;
+  flex-direction: column;
+
+  .subtab {
+    display: flex;
+    flex-direction: row;
+
+    padding: 5px;
+    margin-bottom: 2px;
+
+    font-size: 1rem;
+    cursor: pointer;
+
+    &__icon {
+      width: 1.6rem;
+    }
+    &__title {
+      text-decoration: rgb(121, 114, 113) underline 1px;
+    }
+
+    &:hover {
+      background-color: rgb(231, 228, 223);
+    }
+  }
+}

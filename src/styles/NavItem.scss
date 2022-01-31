@@ -10,14 +10,12 @@
     height: 30px;
     width: 100%;
     cursor: pointer;
-  
-    span {
+
+    &__icon {
       margin-left: 15px;
     }
-    li {
+    &__title {
       margin-left: 5px;
-      text-decoration: none;
-      list-style: none;
     }
   
     &:hover {

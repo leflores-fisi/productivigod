@@ -1,17 +1,16 @@
-import ListView from "../../components/ListView";
+import SubtabsListview from "../../components/SubtabsListview";
+import TabHeader from "../../components/TabHeader";
 import { useAppSession } from "../../context/AppSessionContext";
 import Assignments from "./components/Assignments";
 
 function Tasks() {
 
-  const session = useAppSession().tabs[0];
+  const tab = useAppSession().tabs[0];
 
   return (
     <div>
-      <header>
-        Lets make a productive day
-      </header>
-      <ListView session={session} Component={Assignments}/>
+      <TabHeader tab={tab}/>
+      <SubtabsListview session={tab} Component={Assignments}/>
     </div>
   )
 }

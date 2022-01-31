@@ -1,21 +1,27 @@
 import { Link, Route, useLocation } from 'wouter';
+import '../styles/SubtabsListview.scss'
 
-function ListView({session, Component}) {
+function SubtabsListview({session, Component}) {
   
   const [currentPath, ] = useLocation();
   // console.log(session, 'Session loaded from ListView')
 
   return (
-    <div>
+    <div className='tab__content'>
       {
         currentPath === session.path ?
-        <ul>
+        <ul className='subtabs-listview'>
         {
-          session.subtabs.map((subtab) => (
+          session.subtabs.map(subtab => (
             <Link to={session.path + subtab.path} key={subtab.title}>
-              <div>
-                <li>{subtab.title}</li>
-              </div>
+              <li className='subtab'>
+                <span className='subtab__icon'>
+                  {subtab.icon}
+                </span>
+                <div className='subtab__title'>
+                  {subtab.title}
+                </div>
+              </li>
             </Link>
           ))
         }
@@ -32,4 +38,4 @@ function ListView({session, Component}) {
     </div>
   )
 }
-export default ListView;
+export default SubtabsListview;

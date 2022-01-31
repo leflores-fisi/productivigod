@@ -23,7 +23,7 @@ function TabsNavbar() {
           return <TabNavItem 
             path={tab.path}
             icon={tab.icon}
-            name={tab.title}
+            title={tab.title}
             subtabs={tab.subtabs}
           />
         })

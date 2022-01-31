@@ -1,19 +1,17 @@
-import ListView from '../../components/ListView';
+import SubtabsListview from '../../components/SubtabsListview';
+import TabHeader from '../../components/TabHeader';
 import { useAppSession } from '../../context/AppSessionContext';
 import MarkDownEditor from './components/MarkdownEditor';
 
 function Notes() {
 
-  const session = useAppSession().tabs[1];
+  const tab = useAppSession().tabs[1];
 
   return (
     <div>
-      <header>
-        Notes... why note?
-      </header>
-      <br/>
-      <ListView session={session} Component={MarkDownEditor}/>
-    </div>
+      <TabHeader tab={tab}/>
+      <SubtabsListview session={tab} Component={MarkDownEditor}/>
+    </div> // Maybe deleted this div?
   );
 }
 
