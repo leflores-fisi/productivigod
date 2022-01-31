@@ -88,7 +88,7 @@
 
   width: 100%;
   
-  .header {
+  .app-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -105,7 +105,7 @@
     background-color: var(--background-primary);
     height: calc(100% - var(--header-height));
 
-    .window {
+    .tab {
       width: calc(100% - var(--aside-width));
       padding: 0 100px;
     }

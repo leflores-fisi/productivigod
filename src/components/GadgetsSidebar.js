@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/Tools.scss'
 
-function GadgetSidebar() {
+function GadgetsSidebar() {
 
   return (
     <aside className='tools'>
@@ -12,4 +12,4 @@ function GadgetSidebar() {
   )
 }
 
-export default GadgetSidebar;
+export default GadgetsSidebar;

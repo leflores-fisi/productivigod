@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import TaskItem from "./TaskItem";
 
-function TasksBlock() {
+function TasksBlock({title, todos}) {
 
   const [folded, setFolded] = useState(true);
 
   const handleChange = (e) => {
-
     setFolded(!folded);
   }
 
@@ -18,15 +17,17 @@ function TasksBlock() {
     <div className='tasks-block'>
       <div className='tasks-block__header' onClick={handleChange}>
         <input type='checkbox' onChange={handleChange} checked={folded}/>
-        Grupo
+        {title}
       </div>
       {
         folded
         ?
         <ul>
-          <TaskItem text='tarea 1'/>
-          <TaskItem text='tarea 2'/>
-          <TaskItem text='tarea 3'/>
+          {
+            todos.map(todo => {
+              return <TaskItem text={todo.text} status={todo.status}/>
+            })
+          }
         </ul>
         :
         <></>

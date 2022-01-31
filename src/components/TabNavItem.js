@@ -1,10 +1,10 @@
 import { Link } from 'wouter';
 import '../styles/NavItem.scss'
 
-function NavItem({path, icon = '❔', name, submenus}) {
+function TabNavItem({path, icon = '❔', name, subtabs}) {
 
   const handleClick = () => {
-    console.log(path)
+    console.info('Setting tab to', path)
   }
 
   return (
@@ -17,4 +17,4 @@ function NavItem({path, icon = '❔', name, submenus}) {
   );
 }
 
-export default NavItem;
+export default TabNavItem;

@@ -1,11 +1,12 @@
-function Manager() {
 
+function Manager() {
+  
   return (
-    <>
+    <div>
       <div>
         Lets manage our week
       </div>
-    </>
+    </div>
   )
 }
 

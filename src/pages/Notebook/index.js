@@ -1,16 +1,19 @@
 import ListView from '../../components/ListView';
-import {NotebookContext} from './context/NotebookContext'
+import { useAppSession } from '../../context/AppSessionContext';
+import MarkDownEditor from './components/MarkdownEditor';
 
 function Notes() {
 
+  const session = useAppSession().tabs[1];
+
   return (
-    <NotebookContext.Provider value={8}>
+    <div>
       <header>
         Notes... why note?
       </header>
       <br/>
-      <ListView/>
-    </NotebookContext.Provider>
+      <ListView session={session} Component={MarkDownEditor}/>
+    </div>
   );
 }
 

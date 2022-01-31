@@ -1,23 +1,18 @@
-import { TasksProvider } from "../../context/TasksContext";
+import ListView from "../../components/ListView";
+import { useAppSession } from "../../context/AppSessionContext";
 import Assignments from "./components/Assignments";
 
 function Tasks() {
 
-  const initialState = {
-    stories: [
-      
-    ]
-  }
+  const session = useAppSession().tabs[0];
 
   return (
-    <>
-      <TasksProvider>
-        <header>Lets make a productive day</header>
-        <Assignments>
-        </Assignments>
-      </TasksProvider>
-    </>
-
+    <div>
+      <header>
+        Lets make a productive day
+      </header>
+      <ListView session={session} Component={Assignments}/>
+    </div>
   )
 }
 

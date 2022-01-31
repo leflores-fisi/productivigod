@@ -1,33 +1,33 @@
 import { useEffect } from 'react';
 import { Route } from 'wouter';
-import GadgetSidebar from './components/GadgetSidebar'
-import Navbar from './components/Navbar';
+import TabsNavbar from './components/TabsNavbar';
+import GadgetsSidebar from './components/GadgetsSidebar'
 
 import Tasks from './pages/Tasks/index'
 import Notebook from './pages/Notebook/index'
 import Manager from './pages/Manager/index'
 
-import {useTheme} from './hooks/useTheme'
+import { useTheme } from './hooks/useTheme'
 import useLocalStorage from './hooks/useLocalStorage';
-import { SessionContextProvider } from './context/SessionContext';
-import './app.scss';
+import { AppSessionContextProvider } from './context/AppSessionContext';
+import './App.scss';
 
 function App() {
 
   // Light theme by default
   const {theme, setTheme} = useTheme('light');
+  // Main sidebar showed by default
   const [hidden, setHidden] = useLocalStorage('sidebar-hidden', false);
+  const handleFolded = () => setHidden(!JSON.parse(hidden));
 
   // once the app has renderizing
   useEffect(() => {
     console.info('Whole app renderizing...');
   }, []);
 
-  const handleFolded = () => setHidden(!JSON.parse(hidden));
-
   return (
-    <SessionContextProvider>
-      <div className='app'>
+    <div className='app'>
+      <AppSessionContextProvider>
         <aside className={`side-bar${JSON.parse(hidden)? ' hidden' : ''}`}>
           <button className='side-bar-switcher' onClick={handleFolded}>{'<'}</button>
           <div className='side-bar__panel'>
@@ -36,7 +36,7 @@ function App() {
               <div>Status: <span>Focused</span></div>
             </div>
           </div>
-          <Navbar/>
+          <TabsNavbar/>
           <button
             className='toggle-theme' 
             onClick={() => setTheme(theme === 'dark'? 'light' : 'dark')}>{theme}
@@ -44,20 +44,20 @@ function App() {
         </aside>
 
         <div className='app__container'>
-          <header className='header'>
+          <header className='app-header'>
           </header>
 
           <div className='content'>
-            <main className='window'>
-              <Route path='/tasks' component={Tasks}/>
-              <Route path='/notebook/:item?' component={Notebook}/>
+            <main className='tab'>
+              <Route path='/tasks/:group?' component={Tasks}/>
+              <Route path='/notebook/:note?' component={Notebook}/>
               <Route path='/manager' component={Manager}/>
             </main>
-            <GadgetSidebar/>
+            <GadgetsSidebar/>
           </div>
         </div>
-      </div> // app
-    </SessionContextProvider>
+      </AppSessionContextProvider>
+    </div>
   );
 }
 
