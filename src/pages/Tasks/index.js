@@ -5,12 +5,12 @@ import Assignments from "./components/Assignments";
 
 function Tasks() {
 
-  const tab = useAppSession().tabs[0];
+  const {appSession} = useAppSession();
 
   return (
     <div>
-      <TabHeader tab={tab}/>
-      <SubtabsListview session={tab} Component={Assignments}/>
+      <TabHeader tab={appSession.tabs[0]}/>
+      <SubtabsListview session={appSession.tabs[0]} Component={Assignments}/>
     </div>
   )
 }

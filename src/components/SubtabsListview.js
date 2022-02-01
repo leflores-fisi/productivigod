@@ -29,9 +29,9 @@ function SubtabsListview({session, Component}) {
         : null
       }
       {
-        session.subtabs.map((item) => (
-          <Route path={session.path + item.path}>
-            <Component content={item.content}/>
+        session.subtabs.map((subtab) => (
+          <Route path={session.path + subtab.path}>
+            <Component content={subtab.content}/>
           </Route>
         ))
       }

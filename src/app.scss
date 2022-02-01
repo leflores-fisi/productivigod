@@ -1,7 +1,7 @@
 
 .app {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .side-bar {
@@ -15,6 +15,7 @@
   top: 0;
 
   transition: width 0.2s;
+  height: 100vh;
   background-color: var(--aside-primary);
   width: var(--aside-width);
 
@@ -72,8 +73,10 @@
     justify-content: center;
     align-items: center;
 
-    height: var(--header-height);
+    position: sticky;
+    top: 0;
 
+    height: var(--header-height);
     background-color: var(--header-primary);
     color: white;
   }
@@ -94,9 +97,10 @@
         margin-bottom: 20px;
         &__title {
           display: flex;
+          align-items: flex-end;
           font-size: 1.3em;
           font-weight: 600;
-          margin-bottom: 5px;
+          margin-bottom: 10px;
           span {margin-right: 4px;}
         }
         &__desc {
@@ -105,8 +109,10 @@
       }
     }
     .gadgets {
+      position: sticky;
+      top: var(--header-height);
+      height: calc(100vh - var(--header-height));
       width: var(--aside-width);
-      height: 100%;
       background-color: #ebe6e1;
     }
   }

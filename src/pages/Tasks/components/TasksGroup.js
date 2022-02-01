@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TaskItem from "./TaskItem";
+import TaskTextInput from "./TaskTextInput";
 
 function TasksBlock({title, todos}) {
 
@@ -26,6 +27,7 @@ function TasksBlock({title, todos}) {
         </ul>
         : null
       }
+      <TaskTextInput todos={todos}/>
     </div>
   );
 }

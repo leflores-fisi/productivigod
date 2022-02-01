@@ -9,7 +9,7 @@ function TabHeader({tab}) {
       <div className='tab__header__title'>
         <span>{tab.icon}</span>
         <div>{tab.title}</div>
-        <span>{path}</span>
+        <span style={{fontSize: '0.8rem', fontWeight: 100, marginBottom: 2, marginLeft: 4}}>{path}</span>
       </div>
       <div className='tab__header__desc'>
         {tab.desc || 'No description provided yet, but soon...'}

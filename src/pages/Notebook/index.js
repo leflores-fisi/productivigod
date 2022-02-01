@@ -5,7 +5,8 @@ import MarkDownEditor from './components/MarkdownEditor';
 
 function Notes() {
 
-  const tab = useAppSession().tabs[1];
+  const {appSession} = useAppSession();
+  const tab = appSession.tabs[1];
 
   return (
     <div>

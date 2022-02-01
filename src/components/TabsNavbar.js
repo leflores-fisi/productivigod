@@ -6,7 +6,8 @@ import { useAppSession } from "../context/AppSessionContext";
 function TabsNavbar() {
 
   const [currentPath, ] = useLocation('/home');
-  const navTabs = useAppSession().tabs;
+  const {appSession} = useAppSession();
+  const navTabs = appSession.tabs;
 
   // Updating who tab is selected every time the path changes
   useEffect(() => {

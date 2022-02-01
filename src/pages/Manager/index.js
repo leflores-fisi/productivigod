@@ -4,8 +4,9 @@ import { useAppSession } from '../../context/AppSessionContext';
 
 function Manager() {
   
-  const tab = useAppSession().tabs[2];
-  const [path, ] = useLocation();
+  const {appSession} = useAppSession();
+  const tab = appSession.tabs[2];
+  const [path, ] = useLocation(); //eslint-disable-line
 
   return (
     <div>
