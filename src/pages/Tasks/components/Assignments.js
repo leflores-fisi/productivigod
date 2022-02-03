@@ -1,4 +1,5 @@
 import TasksGroup from "./TasksGroup";
+import { nanoid } from 'nanoid';
 import '../../../styles/Assignments.scss'
 
 function Assignments({content}) {
@@ -7,7 +8,7 @@ function Assignments({content}) {
     <div className="assignments">
       {
         content.groups.map(group => {
-          return <TasksGroup title={group.title} todos={group.todos}/>
+          return <TasksGroup key={nanoid()} title={group.title} todos={group.todos}/>
         })
       }
     </div>

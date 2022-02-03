@@ -1,4 +1,6 @@
+import React from 'react';
 import { Link, Route } from 'wouter';
+import { nanoid } from 'nanoid'
 import Assignments from '../pages/Tasks/components/Assignments';
 import MarkdownEditor from '../pages/Notebook/components/MarkdownEditor'
 import '../styles/SubtabsListview.scss'
@@ -20,29 +22,27 @@ function SubtabsListview({ tab }) {
           ))
         }
       </ul>
-      <div className='HOLA HTML'>
+      < >
         {
           tab.subtabs.map(subtab => (
-            < >
+            <React.Fragment key={nanoid()}>
               {
                 tab.type === 'ASSIGNMENTS_VIEWER'?
                   <Route path={tab.path + subtab.path}>
-                    <Assignments content={subtab.content}/>
+                    <Assignments key={subtab.path} content={subtab.content}/>
                   </Route>
                 :
                 tab.type === 'NOTEBOOK_VIEWER'?
                   <Route path={tab.path + subtab.path}>
-                    <MarkdownEditor content={subtab.content}/>
+                    <MarkdownEditor key={subtab.path} content={subtab.content}/>
                   </Route>
                 :
-                  <div>
-                    FATAL ERROR IN SUBTASKLISTVIEW.JS AYUDAAAAAAAAAAAAAAAAAAA
-                  </div>
+                null
               }
-            </>
+            </React.Fragment>
           ))
         }
-      </div>
+      </>
     </div>
   )
 }

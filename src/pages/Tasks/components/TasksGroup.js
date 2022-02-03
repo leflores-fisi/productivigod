@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { nanoid } from 'nanoid'
 import TaskItem from "./TaskItem";
 import TaskTextInput from "./TaskTextInput";
 
@@ -21,7 +22,7 @@ function TasksBlock({title, todos}) {
         <ul className='tasks-list'>
           {
             todos.map(todo => {
-              return <TaskItem text={todo.text} status={todo.status}/>
+              return <TaskItem key={nanoid()} text={todo.text} status={todo.status}/>
             })
           }
         </ul>

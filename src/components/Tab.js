@@ -7,8 +7,6 @@ function Tab({params}) {
   const store = useStore();
   const tabs = store.getState().tabs;
 
-  console.log(params.tab)
-
   for (let tab of tabs) {
     if (tab.path === `/${params.tab}`) {
       return (
@@ -20,6 +18,6 @@ function Tab({params}) {
       );
     }
   }
-  return <div>FATAL ERROR IN TAB.JS</div>
+  return <div>FATAL ERROR IN TAB.JS</div>;
 }
 export default Tab;

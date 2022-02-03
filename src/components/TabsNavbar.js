@@ -22,7 +22,8 @@ function TabsNavbar() {
     <ul className='side-bar__nav-list'>
       {
         tabs.map(tab => {
-          return <TabNavItem 
+          return <TabNavItem
+            key={tab.path}
             path={tab.path}
             icon={tab.icon}
             title={tab.title}

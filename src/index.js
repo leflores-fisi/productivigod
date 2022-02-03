@@ -27,7 +27,7 @@ const rerender = () => ReactDOM.render(
 rerender();
 
 store.subscribe(() => {
-  console.log('A', store.getState());
+  console.log('New store value:', store.getState());
   rerender();
 });
 
