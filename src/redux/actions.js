@@ -1,9 +1,9 @@
 // Tasks actions
 
-export const addTask = (text, status) => {
+export const addTask = (text, status, path, groupTitle) => {
   return {
     type: "@tasks/add",
-    payload: { text, status },
+    payload: { text, status, path, groupTitle },
   };
 };
 export const removeTask = (id) => {

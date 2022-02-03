@@ -1,4 +1,5 @@
 import produce from "immer";
+import { divideString } from "../funcs";
 
 const appSession = JSON.parse(localStorage.getItem('appSession'));
 
@@ -8,13 +9,22 @@ const appReducer = (state = appSession, action) => {
   switch (action.type) {
 
     case '@tasks/add':
-      console.log(`Added task with text: "${action.payload.text}"`)
+
+      const path = action.payload.path, 
+            groupTitle = action.payload.groupTitle,
+            paths = divideString(path, path.lastIndexOf('/'));
+
+      const index1 = state.tabs.map(t => t.path).indexOf(paths[0]),
+            index2 = state.tabs[index1].subtabs.map(s => s.path).indexOf(paths[1]),
+            index3 = state.tabs[index1].subtabs[index2].content.groups.map(g => g.title).indexOf(groupTitle);
+
       const newstate = produce(state, draft => {
-        draft.tabs[0].subtabs[0].content.groups[0].todos.push({
+        draft.tabs[index1].subtabs[index2].content.groups[index3].todos.push({
           text: action.payload.text,
           status: action.payload.status
         })
-      })
+      });
+      console.log(`Added task with text: "${action.payload.text}"`)
       return newstate;
 
     case '@tasks/remove':

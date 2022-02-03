@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
+import { useLocation } from 'wouter';
 import { addTask } from '../../../redux/actions'
 
-function TaskTextInput(/*{todos}*/) {
+function TaskTextInput({ groupTitle }) {
 
   const [text, setText] = useState();
   const dispatch = useDispatch();
+  const [path, ] = useLocation();
 
   const handleInput = (e) => {
     setText(e.target.value);
-    if (e.key === 'Enter') {
-      dispatch(addTask(text.trim(), 'Uncompleted'));
+    if (text && e.key === 'Enter') {
+      dispatch(addTask(text.trim(), 'XD', path, groupTitle));
       setText("");
     }
     e.target.focus();

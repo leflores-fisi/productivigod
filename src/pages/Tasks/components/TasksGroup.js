@@ -5,20 +5,20 @@ import TaskTextInput from "./TaskTextInput";
 
 function TasksBlock({title, todos}) {
 
-  const [folded, setFolded] = useState(true);
+  const [opened, setOpened] = useState(true);
 
   const handleChange = (e) => {
-    setFolded(!folded);
+    setOpened(prev => !prev);
   }
 
   return (
     <div className='tasks-group'>
       <header className='tasks-group__header' onClick={handleChange}>
-        <input type='checkbox' onChange={handleChange} checked={folded}/>
+        <input type='checkbox' onChange={handleChange} checked={opened}/>
         <div>{title}</div>
       </header>
       {
-        folded ?
+        opened ?
         <ul className='tasks-list'>
           {
             todos.map(todo => {
@@ -28,7 +28,7 @@ function TasksBlock({title, todos}) {
         </ul>
         : null
       }
-      <TaskTextInput todos={todos}/>
+      <TaskTextInput groupTitle={title}/>
     </div>
   );
 }
