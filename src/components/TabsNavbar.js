@@ -1,26 +1,27 @@
 import React, { useEffect } from "react";
 import TabNavItem from "./TabNavItem";
 import { useLocation } from 'wouter';
-import { useAppSession } from "../context/AppSessionContext";
+import { useStore } from "react-redux";
 
 function TabsNavbar() {
 
   const [currentPath, ] = useLocation('/home');
-  const {appSession} = useAppSession();
-  const navTabs = appSession.tabs;
 
-  // Updating who tab is selected every time the path changes
+  const store = useStore();
+  const tabs = store.getState().tabs;
+
   useEffect(() => {
+    // Updating who tab is selected every time the path changes
     Array.from(document.querySelector('.side-bar__nav-list').children).forEach((item) => {
       item.classList.remove('selected');
       if (item.classList.contains(currentPath)) item.classList.add('selected')
     });
-  }, [currentPath]);
+  }, [currentPath]); // eslint-disable-line
 
   return (
     <ul className='side-bar__nav-list'>
       {
-        navTabs.map(tab => {
+        tabs.map(tab => {
           return <TabNavItem 
             path={tab.path}
             icon={tab.icon}

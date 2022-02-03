@@ -16,7 +16,7 @@ export function useTheme(colorTheme) {
 		}
 		else console.info(`Theme ${theme} is not supported`);
 
-	}, [theme]); // eslint-disable-line
+	}, [theme]); /* eslint-disable-line */ // We only need one dependency
 
-	return { theme, setTheme };
+	return [theme, setTheme];
 }

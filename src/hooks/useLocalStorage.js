@@ -9,7 +9,7 @@ function useLocalStorage(key, initialValue) {
         localStorage.setItem(key, initialValue);
         return initialValue;
       }
-      return item;
+      else return item;
     }
     catch (error) {
       console.warn('Error trying to get a localStorage value: ', error);
@@ -17,10 +17,10 @@ function useLocalStorage(key, initialValue) {
     }
   });
 
-  const setValue = (value) => {
+  const setValue = (new_value) => {
     try {
-      setStoredValue(value);
-      localStorage.setItem(key, value);
+      setStoredValue(new_value);
+      localStorage.setItem(key, new_value);
     }
     catch (error) {
       console.warn('Error trying to set a localStorage value: ', error);

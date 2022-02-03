@@ -1,26 +1,16 @@
-import { useAppSession } from "../../../context/AppSessionContext";
+import { useDispatch } from 'react-redux'
+import { addTask } from '../../../redux/actions'
 
-function TaskTextInput({todos}) {
+function TaskTextInput(/*{todos}*/) {
 
-  const {appSession, setAppSession} = useAppSession();
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    console.log('Submiting')
-    
-    setAppSession((prev) => {
-      const atab = {...prev};
-      atab.tabs[0].subtabs[0].content.groups[0].todos = [{text: e.target.firstChild.value, status: 'Test'}, ...atab.tabs[0].subtabs[0].content.groups[0].todos];
-      
-      return atab;
-    })
-    console.log(appSession.tabs[0].subtabs[0].content.groups[0].todos)
-  }
+  const dispatch = useDispatch();
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => {
+        e.preventDefault()
+        dispatch(addTask(e.target.firstChild.value, 'Default status'))
+      }}>
         <input type='text'></input>
       </form>
       <div>Agregar tarea</div>
