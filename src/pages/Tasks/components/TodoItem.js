@@ -1,17 +1,8 @@
 import { useState } from 'react'
-import { editTodo } from '../../../redux/actions'
+import { editTodo, removeTodo, addTodo } from '../../../redux/actions'
+import { nanoid } from 'nanoid'
 import { useDispatch } from 'react-redux'
-import { removeTodo } from '../../../redux/actions'
 import { getTodoById } from '../../../utilities/funcs'
-
-const focusPreviousTodo = (id) => {
-  let previousTodo = getTodoById(id).previousElementSibling
-  if (previousTodo) previousTodo.children[1].focus()
-}
-const focusNextTodo = (id) => {
-  let nextTodo = getTodoById(id).nextElementSibling
-  if (nextTodo) nextTodo.children[1].focus()
-}
 
 function TodoItem({ id, text, status, groupTitle }) {
 
@@ -19,36 +10,68 @@ function TodoItem({ id, text, status, groupTitle }) {
   const [textOnFocus, setTextOnFocus] = useState('')
   const dispatch = useDispatch()
 
+  // Functionalities
+  const thisTodo = () => getTodoById(id)
+  const focusSibling = (who) => {
+    let siblingTodo
+    if (who === 'nextTodo') {
+      siblingTodo = thisTodo().nextElementSibling
+      if (!siblingTodo) return
+      siblingTodo.children[1].focus()
+      setTimeout(() => siblingTodo.children[1].setSelectionRange(0, 0), 0)
+    }
+    else if (who === 'previousTodo') {
+      siblingTodo = thisTodo().previousElementSibling
+      if (!siblingTodo) return
+      siblingTodo.children[1].focus()
+      let cartePos = siblingTodo.children[1].value.length
+      setTimeout(() => siblingTodo.children[1].setSelectionRange(cartePos, cartePos), 0)
+    }
+  }
+
   // Event handlers
   const handleChange = (e) => {
 
     switch (e.key) {
+      
       case 'Enter':
-        // Add new todo
+        if (textContent !== '') {
+          dispatch(addTodo({
+            status: 'Default',
+            id: nanoid(), groupTitle
+          }))
+          setTimeout(() => focusSibling('nextTodo'), 0)
+        }
         break
+        
       case 'Backspace':
-        if (textContent === '') dispatch(removeTodo(id, groupTitle))
-        focusPreviousTodo(id)
-        break
-
-      case 'ArrowUp':
-        focusPreviousTodo(id)
-        break
-
-      case 'ArrowDown':
-        focusNextTodo(id)
+        if (textContent === '' && thisTodo().previousElementSibling) {
+          e.preventDefault();
+          focusSibling('previousTodo')
+          dispatch(removeTodo(id, groupTitle))
+        }
         break
       
       case 'ArrowLeft':
-        if (!textContent) focusPreviousTodo(id)
+        if (!textContent || thisTodo().children[1].selectionStart === 0) {
+          focusSibling('previousTodo')
+        }
         break
       
       case 'ArrowRight':
-        if (!textContent) focusNextTodo(id)
+        if (!textContent || thisTodo().children[1].selectionEnd === thisTodo().children[1].value.length)
+          focusSibling('nextTodo')
         break
 
-      default:
-        setTextContent(e.target.value)
+      case 'ArrowUp':
+        focusSibling('previousTodo')
+        break
+
+      case 'ArrowDown':
+        focusSibling('nextTodo')
+        break
+
+      default: setTextContent(e.target.value)
     }
   }
   const handleOnFocus = (e) => {
@@ -83,7 +106,7 @@ function TodoItem({ id, text, status, groupTitle }) {
       />
       <button 
         onClick={() => dispatch(removeTodo(id, groupTitle))}>
-          Borrar
+          Remove
       </button>
     </li>
   )

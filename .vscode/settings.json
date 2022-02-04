@@ -13,5 +13,8 @@
     "**/.gitignore": true,
     ".gitignore": true
   },
-  "explorerExclude.backup": null
+  "explorerExclude.backup": null,
+  "cSpell.ignoreWords": [
+    "todos"
+  ]
 }

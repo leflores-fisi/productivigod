@@ -16,7 +16,7 @@ function TodoTextInput({ groupTitle }) {
     setTimeout(() => e.target.parentElement.children[1].lastChild.children[1].focus(), 0)
   }
   return (
-    <button className='todos-input' onClick={handleClick}> + Add newtask</button>
+    <button className='todos-input' onClick={handleClick}> + Add new task</button>
   )
 }
 
