@@ -1,14 +1,20 @@
 // Tasks actions
 
-export const addTask = (text, status, path, groupTitle) => {
+export const addTodo = ({ status, groupTitle, id }) => {
   return {
-    type: "@tasks/add",
-    payload: { text, status, path, groupTitle },
+    type: "@todo/add",
+    payload: { status, groupTitle, id },
   };
 };
-export const removeTask = (id) => {
+export const removeTodo = (id, groupTitle) => {
   return {
-    type: "@tasks/remove",
-    payload: { id },
+    type: "@todo/remove",
+    payload: { id, groupTitle },
+  };
+};
+export const editTodo = ({ id, status, text, groupTitle }) => {
+  return {
+    type: "@todo/edit",
+    payload: { id, status, text, groupTitle },
   };
 };

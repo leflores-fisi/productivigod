@@ -10,10 +10,9 @@ function Tab({params}) {
   for (let tab of tabs) {
     if (tab.path === `/${params.tab}`) {
       return (
-        <>
+        < >
           <TabHeader tab={tab}/>
           <SubtabsListview tab={tab}/>
-          <div>En la tab: {params.tab}</div>
         </>
       );
     }

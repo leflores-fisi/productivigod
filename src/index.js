@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-import appReducer from "./redux/appReducer";
+import AppReducer from "./redux/AppReducer";
 import { createStore } from "redux";
 import { Provider } from 'react-redux';
 
@@ -10,7 +10,7 @@ import "./index.scss";
 import "./styles/normalize.css";
 
 const store = createStore(
-  appReducer,
+  AppReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 // Getting the state
@@ -27,7 +27,7 @@ const rerender = () => ReactDOM.render(
 rerender();
 
 store.subscribe(() => {
-  console.log('New store value:', store.getState());
+  //console.log('New store value:', store.getState());
   rerender();
 });
 

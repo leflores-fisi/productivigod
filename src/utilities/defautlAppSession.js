@@ -1,6 +1,6 @@
-// import useLocalStorage from "./useLocalStorage";
+import { nanoid } from "nanoid"
 
-const defaultSession = {
+export const defaultAppSession = {
 
   user: {
     name: 'default user',
@@ -24,10 +24,12 @@ const defaultSession = {
                 title: 'Less than 2 minutes',
                 todos: [
                   {
+                    id: nanoid(),
                     text: 'Test the app',
                     status: 'Completed'
                   },
                   {
+                    id: nanoid(),
                     text: 'See this',
                     status: 'Uncompleted'
                   }
@@ -37,6 +39,7 @@ const defaultSession = {
                 title: 'Less than half hour',
                 todos: [
                   {
+                    id: nanoid(),
                     text: 'Programming like a goat',
                     status: 'Completed'
                   }
@@ -46,6 +49,7 @@ const defaultSession = {
                 title: 'More than half hour',
                 todos: [
                   {
+                    id: nanoid(),
                     text: 'Nothing yet but soon',
                     status: 'Uncompleted'
                   }
@@ -65,6 +69,7 @@ const defaultSession = {
                 title: 'Ideas',
                 todos: [
                   {
+                    id: nanoid(),
                     text: 'Need to implement login',
                     status: 'Uncompleted'
                   }
@@ -74,83 +79,7 @@ const defaultSession = {
                 title: 'Dead ideas',
                 todos: [
                   {
-                    text: 'Say welcome to the frustred dreams',
-                    status: 'Completed'
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      icon: '😎',
-      title: 'Tareitas',
-      path: '/tareitas',
-      type: 'ASSIGNMENTS_VIEWER',
-      subtabs: [
-        {
-          icon: '🎒',
-          title: 'College',
-          path: '/college',
-          content: {
-            design: 'BOARD',
-            groups: [
-              {
-                title: 'Less than 2 minutes',
-                todos: [
-                  {
-                    text: 'Test the app',
-                    status: 'Completed'
-                  },
-                  {
-                    text: 'See this',
-                    status: 'Uncompleted'
-                  }
-                ]
-              },
-              {
-                title: 'Less than half hour',
-                todos: [
-                  {
-                    text: 'Programming like a goat',
-                    status: 'Completed'
-                  }
-                ]
-              },
-              {
-                title: 'More than half hour',
-                todos: [
-                  {
-                    text: 'Nothing yet but soon',
-                    status: 'Uncompleted'
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          icon: '💼',
-          title: 'Work',
-          path: '/work',
-          content: {
-            design: 'LIST',
-            groups: [
-              {
-                title: 'Ideas',
-                todos: [
-                  {
-                    text: 'Need to implement login',
-                    status: 'Uncompleted'
-                  }
-                ]
-              },
-              {
-                title: 'Dead ideas',
-                todos: [
-                  {
+                    id: nanoid(),
                     text: 'Say welcome to the frustred dreams',
                     status: 'Completed'
                   }
@@ -190,8 +119,12 @@ const defaultSession = {
   ]
 }
 
-// export function useAppSession() {
-//   const [appSession, setAppSession] = useLocalStorage('appSession', JSON.stringify(defaultSession));
-
-//   return [appSession, setAppSession];
-// }
+let total = 0;
+for (let item in localStorage) {
+  if (localStorage.hasOwnProperty(item)) {
+    let size = ((localStorage[item].length + item.length) * 2);
+    total += size;
+    console.log(`${item} = ${(size / 1024).toFixed(5)} KB`);
+  }
+};
+console.log(`Total = ${(total / 1024).toFixed(5)} KB`);

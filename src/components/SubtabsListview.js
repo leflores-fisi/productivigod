@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, Route } from 'wouter';
-import { nanoid } from 'nanoid'
 import Assignments from '../pages/Tasks/components/Assignments';
 import MarkdownEditor from '../pages/Notebook/components/MarkdownEditor'
 import '../styles/SubtabsListview.scss'
@@ -25,7 +24,7 @@ function SubtabsListview({ tab }) {
       < >
         {
           tab.subtabs.map(subtab => (
-            <React.Fragment key={nanoid()}>
+            <React.Fragment key={subtab.path}>
               {
                 tab.type === 'ASSIGNMENTS_VIEWER'?
                   <Route path={tab.path + subtab.path}>

@@ -1,7 +1,11 @@
 
 .app {
-  display: flex;
-  min-height: 100vh;
+
+  min-height: 0;
+  min-width: 0;
+  .app-wrapper {
+    display: flex;
+  }
 }
 
 .side-bar {
@@ -9,7 +13,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: stretch;
 
   position: sticky;
   top: 0;
@@ -18,7 +21,7 @@
   transition: width 0.2s;
   height: 100vh;
   background-color: var(--aside-primary);
-  width: var(--aside-width);
+  min-width: var(--aside-width);
 
   .side-bar-switcher {
     position: absolute;
@@ -66,7 +69,9 @@
 
 .app__container {
 
-  width: 100%;
+  position: relative;
+  right: 0;
+  width: calc(100% - var(--aside-width));
   
   .app-header {
     display: flex;
@@ -90,9 +95,8 @@
     .tab {
       display: flex;
       flex-direction: column;
-      width: calc(100% - var(--aside-width));
-      padding: 20px 100px 0 100px;
-      margin: 0 auto;
+      width: 500px;
+      margin: 20px auto;
 
       &__header {
         margin-bottom: 20px;
@@ -112,9 +116,9 @@
     .gadgets {
       position: sticky;
       top: var(--header-height);
+      background-color: #ebe6e1;
       height: calc(100vh - var(--header-height));
       width: var(--aside-width);
-      background-color: #ebe6e1;
     }
   }
 }
