@@ -2,19 +2,19 @@
 
 export const addTodo = ({ status, groupTitle, id }) => {
   return {
-    type: "@todo/add",
+    type: "@todos/add",
     payload: { status, groupTitle, id },
   };
 };
 export const removeTodo = (id, groupTitle) => {
   return {
-    type: "@todo/remove",
+    type: "@todos/remove",
     payload: { id, groupTitle },
   };
 };
 export const editTodo = ({ id, status, text, groupTitle }) => {
   return {
-    type: "@todo/edit",
+    type: "@todos/edit",
     payload: { id, status, text, groupTitle },
   };
 };

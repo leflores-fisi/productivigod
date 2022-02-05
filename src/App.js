@@ -1,54 +1,26 @@
-import { useEffect } from 'react';
-import { Route } from 'wouter';
-import TabsNavbar from './components/TabsNavbar';
-import GadgetsSidebar from './components/GadgetsSidebar'
-
+import SideBar from './components/SideBar';
 import Tab from './components/Tab';
-// import Tasks from './pages/Tasks'
-// import Notebook from './pages/Notebook'
-// import Manager from './pages/Manager'
-
-import { useTheme } from './hooks/useTheme'
-
-import './App.scss';
-import useLocalStorage from './hooks/useLocalStorage';
+import GadgetsSidebar from './components/GadgetsSidebar'
+import { useEffect } from 'react';
 import { useStore } from 'react-redux';
+import { Route } from 'wouter';
+import './App.scss';
 
 function App() {
 
-  // Light theme by default
-  const [theme, setTheme] = useTheme('light');
-  // Main sidebar showed by default
-  const [hidden, setHidden] = useLocalStorage('sidebar-hidden', false);
-  const handleFolded = () => setHidden(!JSON.parse(hidden));
   // Getting the app session from the store
   const store = useStore();
   const appSession = store.getState();
-  
 
-  // Once the app has renderizing
+  // Once the app has rendering
   useEffect(() => {
-    console.info('Whole app renderizing...', appSession);
+    console.info('Whole app rendering...', appSession);
   }, []); // eslint-disable-line
 
   return (
     <div className='app'>
       <div className='app-wrapper'>
-        <aside className={`side-bar${JSON.parse(hidden)? ' hidden' : ''}`}>
-          <button className='side-bar-switcher' onClick={handleFolded}>{'<'}</button>
-          <div className='side-bar__panel'>
-            <div className='user'>
-              <div>Floresfisi</div>
-              <div>Status: <span>Focused</span></div>
-            </div>
-          </div>
-          <TabsNavbar/>
-          <button
-            className='toggle-theme' 
-            onClick={() => setTheme(theme === 'dark'? 'light' : 'dark')}>{theme}
-          </button>
-        </aside>
-
+        <SideBar/>
         <div className='app__container'>
           <header className='app-header'>
           </header>

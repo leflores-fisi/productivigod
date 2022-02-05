@@ -3,8 +3,8 @@ import { nanoid } from "nanoid"
 export const defaultAppSession = {
 
   user: {
-    name: 'default user',
-    state: 'focused'
+    name: 'Floresfisi',
+    status: 'focused'
   },
   tabs: [
     {

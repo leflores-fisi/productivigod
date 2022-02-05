@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import TabNavItem from "./TabNavItem";
 import { useLocation } from 'wouter';
 import { useStore } from "react-redux";
+import TabNavItem from "./TabNavItem";
 
 function TabsNavbar() {
 
@@ -12,14 +12,15 @@ function TabsNavbar() {
 
   useEffect(() => {
     // Updating who tab is selected every time the path changes
-    Array.from(document.querySelector('.side-bar__nav-list').children).forEach((item) => {
+    Array.from(document.querySelector('.app-sidebar__nav-list').children).forEach((item) => {
       item.classList.remove('selected');
       if (item.classList.contains(currentPath)) item.classList.add('selected')
     });
   }, [currentPath]); // eslint-disable-line
 
   return (
-    <ul className='side-bar__nav-list'>
+    < >
+      <ul className='app-sidebar__nav-list'>
       {
         tabs.map(tab => {
           return <TabNavItem
@@ -27,11 +28,12 @@ function TabsNavbar() {
             path={tab.path}
             icon={tab.icon}
             title={tab.title}
-            subtabs={tab.subtabs}
-          />
+            subtabs={tab.subtabs}/>
         })
       }
-    </ul>
+      </ul>
+      <button>+ Add tab</button>
+    </>
   );
 }
 export default TabsNavbar;

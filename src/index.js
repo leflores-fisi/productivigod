@@ -31,3 +31,12 @@ store.subscribe(() => {
   rerender();
 });
 
+const getScreenSize = () => { //eslint-disable-line
+  // Document
+  //document.body.scrollHeight;
+  //document.body.scrollWidth;
+  // Screen
+  //screen.height;
+  //screen.width;
+}
+

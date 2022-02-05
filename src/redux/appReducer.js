@@ -18,17 +18,17 @@ const getTodoRoute = (state, groupTitle) => {
 }
 
 // Reducer variables
-let index1, index2, index3, newstate;
+let index1, index2, index3, newState;
 
 // Reducer
 function AppReducer(state = appSession, action) {
 
   switch (action.type) {
 
-    case '@todo/add':
+    case '@todos/add':
       [index1, index2, index3] = getTodoRoute(state, action.payload.groupTitle);
 
-      newstate = produce(state, draft => {
+      newState = produce(state, draft => {
         draft.tabs[index1].subtabs[index2].content.groups[index3].todos.push({
           id: action.payload.id,
           text: '',
@@ -36,23 +36,23 @@ function AppReducer(state = appSession, action) {
         });
       });
       console.log('New empty task added');
-      return newstate;
+      return newState;
 
-    case '@todo/remove':
+    case '@todos/remove':
       [index1, index2, index3] = getTodoRoute(state, action.payload.groupTitle);
 
-      newstate = produce(state, draft => {
+      newState = produce(state, draft => {
         draft.tabs[index1].subtabs[index2].content.groups[index3].todos = draft.tabs[index1].subtabs[index2].content.groups[index3].todos
           .filter((todo) => todo.id !== action.payload.id);
       });
 
       console.log('Removing the poor task with id', action.payload.id);
-      return newstate;
+      return newState;
 
-    case '@todo/edit':
+    case '@todos/edit':
       [index1, index2, index3] = getTodoRoute(state, action.payload.groupTitle);
 
-      newstate = produce(state, draft => {
+      newState = produce(state, draft => {
         let todo_index = draft.tabs[index1].subtabs[index2].content.groups[index3].todos.map(todo => todo.id).indexOf(action.payload.id)
         draft.tabs[index1].subtabs[index2].content.groups[index3].todos[todo_index] = {
           id: action.payload.id,
@@ -62,22 +62,22 @@ function AppReducer(state = appSession, action) {
       });
 
       console.log('Editing new task')
-      return newstate;
+      return newState;
     
     case '@tabs/add':
-      console.log('Adding new subtab at the viewlist');
+      console.log('Adding new subtab at the listview');
       return {
         ...state
       }
 
     case '@tabs/remove':
-    console.log('Removing a poor subtab at the viewlist')
+    console.log('Removing a poor subtab at the listview')
       return {
         ...state
       }
 
     case '@tabs/edit':
-      console.log('Editing new subtab at the viewlist')
+      console.log('Editing new subtab at the listview')
       return {
         ...state
       }
