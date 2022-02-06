@@ -35,7 +35,7 @@ function TodosGroup({ title, todos }) {
           </ul>
           <TodoTextInput groupTitle={title}/>
         </>
-        : null
+        : <div>TODOS DOES NOT EXIST IN TodosGroup.js</div>
       }
     </div>
   )

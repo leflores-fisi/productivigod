@@ -1,8 +1,8 @@
 import { useStore } from "react-redux";
 import TabHeader from "./TabHeader";
-import SubtabsListview from "./SubtabsListview";
+import SubtabsListview from "../SubtabsListview";
 
-function Tab({params}) {
+function Tab({ params }) {
 
   const store = useStore();
   const tabs = store.getState().tabs;

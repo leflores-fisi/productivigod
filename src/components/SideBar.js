@@ -1,4 +1,4 @@
-import TabsNavbar from './TabsNavbar'
+import TabsNavbar from './Tab/TabsNavbar'
 import { useTheme } from '../hooks/useTheme'
 import { useState } from 'react'
 import { useUser } from '../hooks/useUser'

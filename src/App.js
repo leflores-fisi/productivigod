@@ -1,5 +1,5 @@
 import SideBar from './components/SideBar';
-import Tab from './components/Tab';
+import Tab from './components/Tab/Tab';
 import GadgetsSidebar from './components/GadgetsSidebar'
 import { useEffect } from 'react';
 import { useStore } from 'react-redux';

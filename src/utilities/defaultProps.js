@@ -119,6 +119,7 @@ export const defaultAppSession = {
   ]
 }
 
+// LocalStorage total current size
 let total = 0;
 for (let item in localStorage) {
   if (localStorage.hasOwnProperty(item)) {

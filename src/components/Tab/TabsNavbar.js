@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from 'wouter';
 import { useStore } from "react-redux";
 import TabNavItem from "./TabNavItem";
+import Modal from '../Modal'
 
 function TabsNavbar() {
 
   const [currentPath, ] = useLocation('/home');
+  const [displayed, setDisplayed] = useState(false)
 
   const store = useStore();
   const tabs = store.getState().tabs;
@@ -20,19 +22,19 @@ function TabsNavbar() {
 
   return (
     < >
+      <Modal displayed={displayed} setDisplayed={setDisplayed}/>
       <ul className='app-sidebar__nav-list'>
       {
         tabs.map(tab => {
           return <TabNavItem
-            key={tab.path}
-            path={tab.path}
             icon={tab.icon}
             title={tab.title}
-            subtabs={tab.subtabs}/>
+            path={tab.path}
+            key={tab.path}/>
         })
       }
       </ul>
-      <button>+ Add tab</button>
+      <button onClick={() => setDisplayed(true)}>+ Add tab</button>
     </>
   );
 }

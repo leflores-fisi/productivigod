@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: row;
 
+    position: relative;
     padding: 5px;
     margin-bottom: 2px;
 
@@ -18,6 +19,10 @@
     }
     &__title {
       text-decoration: rgb(121, 114, 113) underline 1px;
+    }
+    &__options {
+      position: absolute;
+      right: 0;
     }
 
     &:hover {
