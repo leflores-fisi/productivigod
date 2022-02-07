@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTab } from '../redux/actions';
-import '../styles/Modal.scss'
+import './styles/Modal.scss'
 
 function Modal({ displayed, setDisplayed }) {
 

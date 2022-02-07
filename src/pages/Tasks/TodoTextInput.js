@@ -1,6 +1,6 @@
 //import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addTodo } from '../../../redux/actions'
+import { addTodo } from '../../redux/actions'
 import { nanoid } from 'nanoid'
 
 function TodoTextInput({ groupTitle }) {

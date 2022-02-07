@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { editTodo, removeTodo, addTodo } from '../../../redux/actions'
+import { editTodo, removeTodo, addTodo } from '../../redux/actions'
 import { nanoid } from 'nanoid'
 import { useDispatch } from 'react-redux'
-import { getTodoById } from '../../../utilities/funcs'
+import { getTodoById } from '../../utilities/funcs'
 
 function TodoItem({ id, text, status, groupTitle }) {
 

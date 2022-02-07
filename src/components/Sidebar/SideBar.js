@@ -1,7 +1,8 @@
-import TabsNavbar from './Tab/TabsNavbar'
-import { useTheme } from '../hooks/useTheme'
 import { useState } from 'react'
-import { useUser } from '../hooks/useUser'
+import { useTheme } from '../../hooks/useTheme'
+import { useUser } from '../../hooks/useUser'
+import TabsNavbar from './TabsNavbar'
+import './styles/Sidebar.scss'
 
 function SideBar() {
 

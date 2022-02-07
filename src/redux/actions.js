@@ -26,11 +26,35 @@ export const addTab = ({ icon, title, type }) => {
     payload: { icon, title, type }
   }
 }
+export const editTab = ({ new_icon, new_title, tab_path }) => {
+  return {
+    type: '@tabs/edit',
+    payload: { new_icon, new_title, tab_path }
+  }
+}
+export const removeTab = ({ tab_path }) => {
+  return {
+    type: '@tabs/remove',
+    payload: { tab_path }
+  }
+}
 
 // Subtabs actions ----->
 export const addSubtab = ({ icon, title, tab_path }) => {
   return {
     type: '@subtabs/add',
     payload: { icon, title, tab_path }
+  }
+}
+export const editSubtab = ({ new_icon, new_title, subtab_path }) => {
+  return {
+    type: '@subtabs/edit',
+    payload: { new_icon, new_title, subtab_path }
+  }
+}
+export const removeSubtab = ({ title, tab_path }) => {
+  return {
+    type: '@subtabs/remove',
+    payload: { title, tab_path }
   }
 }

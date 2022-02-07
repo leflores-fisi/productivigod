@@ -1,4 +1,4 @@
-import SideBar from './components/SideBar';
+import SideBar from './components/Sidebar/SideBar';
 import Tab from './components/Tab/Tab';
 import GadgetsSidebar from './components/GadgetsSidebar'
 import { useEffect } from 'react';

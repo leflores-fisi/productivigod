@@ -7,69 +7,6 @@
     display: flex;
   }
 }
-
-.app-sidebar {
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  transition: width 0.2s cubic-bezier(.52,.24,.48,1.07);
-  height: 100vh;
-  background-color: var(--aside-primary);
-  width: var(--aside-width);
-
-  .sidebar-switcher {
-    position: absolute;
-    margin: 5px;
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-  &__panel {
-    display: flex;
-    justify-content: center;
-
-    height: 60px;
-    padding-top: 15px;
-    transition: opacity 0.1s;
-    overflow: hidden;
-
-    .user {
-      display: block;
-    }
-  }
-  &__nav-list {
-    display: flex;
-    flex-direction: column;
-
-    transition-delay: 0.1s;
-    transition: opacity 0.1s;
-    overflow: hidden;
-  }
-  &.hidden {
-    width: 0;
-    transition-delay: 0;
-    .app-sidebar__panel, .app-sidebar__nav-list, .toggle-theme {
-      transition-delay: 0;
-      width: 0;
-      opacity: 0;
-
-    }
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    z-index: -1000;
-    right: -60px;
-    height: 100vh;
-    width: 60px;
-  }
-}
 @media (max-width: 35em) {
   .app-sidebar {
     left: -600px
@@ -94,39 +31,16 @@
 
     height: var(--header-height);
     background-color: var(--header-primary);
-    color: white;
   }
   .app-content {
     display: flex;
 
     background-color: var(--background-primary);
     height: calc(100% - var(--header-height));
-
-    .tab {
-      display: flex;
-      flex-direction: column;
-      width: 500px;
-      margin: 20px auto;
-
-      &__header {
-        margin-bottom: 20px;
-        &__title {
-          display: flex;
-          align-items: flex-end;
-          font-size: 1.3em;
-          font-weight: 600;
-          margin-bottom: 10px;
-          span {margin-right: 4px;}
-        }
-        &__desc {
-          font-size: 0.8em;
-        }
-      }
-    }
     .gadgets {
       position: sticky;
       top: var(--header-height);
-      background-color: #ebe6e1;
+      background-color: var(--aside-primary);
       height: calc(100vh - var(--header-height));
       width: var(--aside-width);
     }

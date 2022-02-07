@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/Gadgets-sidebar.scss'
+import './styles/Gadgets-sidebar.scss'
 
 function GadgetsSidebar() {
 

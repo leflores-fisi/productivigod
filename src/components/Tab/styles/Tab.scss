@@ -1,0 +1,21 @@
+.tab {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 20px auto;
+
+  &__header {
+    margin-bottom: 20px;
+    &__title {
+      display: flex;
+      align-items: flex-end;
+      font-size: 1.3em;
+      font-weight: 600;
+      margin-bottom: 10px;
+      span {margin-right: 4px;}
+    }
+    &__desc {
+      font-size: 0.8em;
+    }
+  }
+}

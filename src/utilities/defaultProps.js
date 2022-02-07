@@ -100,20 +100,45 @@ export const defaultAppSession = {
           icon: '💡',
           title: 'Ideas',
           path: '/ideas',
-          content: 'Tengo un sueño, ¿prometes que no te burlarás?'
+          content: 'I have a dream, you promise you are dont gonna laugh?'
         },
         {
           icon: '🐢',
           title: 'Personal',
           path: '/personal',
-          content: 'Personalmente, amo a esta tortuguita'
+          content: 'Personally, I love this turtle'
         },
         {
           icon: '💻',
           title: 'Class notes',
           path: '/notes',
-          content: 'Debía entregar una tarea hoy...'
+          content: 'My teacher dont never read a task'
         }
+      ]
+    }
+  ]
+}
+export const defaultTodoTabContent = {
+  design: 'BOARD',
+  groups: [
+    {
+      title: '🤨 Ideas',
+      todos: [
+      ]
+    },
+    {
+      title: '🐧 To do',
+      todos: [
+      ]
+    },
+    {
+      title: '😳 Doing',
+      todos: [
+      ]
+    },
+    {
+      title: '🥴 Done',
+      todos: [
       ]
     }
   ]

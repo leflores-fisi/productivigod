@@ -1,6 +1,7 @@
 import { useStore } from "react-redux";
 import TabHeader from "./TabHeader";
-import SubtabsListview from "../SubtabsListview";
+import SubtabsListview from "./SubtabsListview";
+import './styles/Tab.scss'
 
 function Tab({ params }) {
 

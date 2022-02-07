@@ -11,7 +11,8 @@
     "package.json": true,
     "**/*.json": false,
     "**/.gitignore": true,
-    ".gitignore": true
+    ".gitignore": true,
+    "src/normalize.css": true
   },
   "explorerExclude.backup": null,
   "cSpell.ignoreWords": [

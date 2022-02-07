@@ -1,5 +1,5 @@
 import TodosGroup from "./TodosGroup";
-import '../../../styles/Assignments.scss'
+import './Assignments.scss'
 
 function Assignments({content}) {
 

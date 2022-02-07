@@ -30,8 +30,14 @@ export function getCurrentTabPath () {
 /**
  * @description If the user is on a subtab, returns his path, otherwise returns null.
  */
-export function getCurrentSubtabPath () {
-  let path  = window.location.pathname;
+export function getCurrentSubtabPath (path = window.location.pathname) {
   if (path.indexOf('/') === path.lastIndexOf('/')) return null;
   else return path.substring(path.lastIndexOf('/'))
 }
+
+/**
+ * @description Pure function that generates a valid web path based of a given word.
+ */
+export const generatePathByName = (name) => {
+  return '/' + name.toLowerCase().split(' ').filter(word => word.trim()).join('-')
+};

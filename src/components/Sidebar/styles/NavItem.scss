@@ -26,7 +26,13 @@
       background-color: var(--aside-secondary);
     }
     &.selected {
-      background-color: rgb(216, 211, 201);
+      background-color: var(--aside-secondary);
+      &::before {
+        content: "";
+        width: 3px;
+        height: 100%;
+        background-color: rgb(136, 108, 161);
+      }
     }
   }
 }

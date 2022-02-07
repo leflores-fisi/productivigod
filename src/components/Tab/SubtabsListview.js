@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route } from 'wouter';
 import { useDispatch } from 'react-redux';
-import { addSubtab } from '../redux/actions';
-import Assignments from '../pages/Tasks/components/Assignments';
-import MarkdownEditor from '../pages/Notebook/components/MarkdownEditor'
+import { addSubtab } from '../../redux/actions';
+import Assignments from '../../pages/Tasks/Assignments';
+import MarkdownEditor from '../../pages/Notebook/MarkdownEditor'
 import SubtabListItem from './SubtabListItem';
-import '../styles/SubtabsListview.scss'
-import { getCurrentSubtabPath } from '../utilities/funcs';
+import { getCurrentSubtabPath } from '../../utilities/funcs';
+import './styles/SubtabsListview.scss'
 
 
 function SubtabsListview({ tab }) {
@@ -16,7 +16,7 @@ function SubtabsListview({ tab }) {
   const handleSubtabAdding = () => {
     dispatch(addSubtab({
       icon: '🦞',
-      title: 'default_tab'+Date.now().toString(),
+      title: '',
       tab_path: tab.path
     }))
   }

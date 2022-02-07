@@ -14,7 +14,12 @@
   --aside-primary: #e1ddd8;
   --aside-secondary: #dbd8ce;
 
-  --text-normal: ;
+  --notebook-primary: rgb(248, 246, 241);
+
+  --text-primary: #000000;
+  --text-secondary: #202020;
+  --text-inverted-primary: #ffffff;
+  --text-inverted-secondary: #f5f5f5;
   --text-link: ;
 
   // Resolutions
@@ -24,6 +29,39 @@
   --tablet-portrait: 480px;
   --phone-landscape: 320px;
   --phone-portrait: 0px;
+
+  &[theme="light"] {
+    --header-primary: #faf9ff;
+    --header-secondary: #e9e4dd;
+    --background-primary: #ffffff;
+    --background-secondary: #dad6ce;
+    --aside-primary: #242424;
+    --aside-secondary: #e1e1e1;
+
+    --notebook-primary: #ffffff;
+
+    --text-primary: #000000;
+    --text-secondary: #202020;
+    --text-inverted-primary: #ffffff;
+    --text-inverted-secondary: #f5f5f5;
+    --text-link: ;
+  }
+  &[theme="dark"] {
+    --header-primary: #e6e2dd;
+    --header-secondary: #e9e4dd;
+    --background-primary: #eeece7;
+    --background-secondary: #dad6ce;
+    --aside-primary: #e1ddd8;
+    --aside-secondary: #ececec;
+
+    --notebook-primary: #FFF;
+
+    --text-primary: #ffffff;
+    --text-secondary: #f5f5f5;
+    --text-inverted-primary: #000000;
+    --text-inverted-secondary: #202020;
+    --text-link: ;
+  }
 }
 
 body {
@@ -48,3 +86,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.text-primary {color: var(--text-primary)}
+.text-secondary {color: var(--text-secondary)}
+.text-inverted-primary {color: var(--text-inverted-primary)}
+.text-inverted-secondary {color: var(--text-inverted-secondary)}
+.text-link {color: var(--text-link)}
