@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'wouter';
 import { editTab, removeTab } from '../../redux/actions';
-import './styles/NavItem.scss'
+import './styles/TabNavItem.scss'
 
 function TabNavItem({path, icon = '❔', title}) {
 
@@ -17,34 +17,36 @@ function TabNavItem({path, icon = '❔', title}) {
   return (
     <Link to={path} onClick={handleClick}>
       <li className={'nav-item ' + path}>
-      {
-        editing?
-        < >
-          <span className='nav-item__icon'>{icon}</span>
-          <input
-            className='nav-item__title'
-            value={titleToEdit}
-            onChange={(e) => setTitleToEdit(e.target.value)}/>
-          <div className='nav-item__options'>
-            <button onClick={() => setEditing(false)}>❌</button>
-            <button
-              onClick={() => dispatch(editTab({
-                new_icon: '🎃',
-                new_title: titleToEdit,
-                tab_path: path
-              }))}>🆗</button>
-          </div>
-        </>
-        :
-        < >
-          <span className='nav-item__icon'>{icon}</span>
-          <div className='nav-item__title'>{title}</div>
-          <div className='nav-item__options'>
-            <button onClick={() => setEditing(true)}>✍</button>
-            <button onClick={() => {dispatch(removeTab({tab_path: path}))}}>✖</button>
-          </div>
-        </>
-      }
+        <div className='nav-item__content'>
+        {
+          editing?
+          < >
+            <span className='icon'>{icon}</span>
+            <input
+              className='title'
+              value={titleToEdit}
+              onChange={(e) => setTitleToEdit(e.target.value)}/>
+            <div className='options'>
+              <button onClick={() => setEditing(false)}>❌</button>
+              <button
+                onClick={() => dispatch(editTab({
+                  new_icon: '🎃',
+                  new_title: titleToEdit,
+                  tab_path: path
+                }))}>🆗</button>
+            </div>
+          </>
+          :
+          < >
+            <span className='icon'>{icon}</span>
+            <div className='title'>{title}</div>
+            <div className='options'>
+              <button onClick={() => setEditing(true)}>✍</button>
+              <button onClick={() => {dispatch(removeTab({tab_path: path}))}}>✖</button>
+            </div>
+          </>
+        }
+        </div>
       </li>
     </Link>
   );

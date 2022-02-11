@@ -3,11 +3,12 @@ import { useLocation } from 'wouter';
 import { useStore } from "react-redux";
 import TabNavItem from "./TabNavItem";
 import Modal from '../Modal'
+import { getCurrentTabPath } from "../../utilities/funcs";
 
 function TabsNavbar() {
 
-  const [currentPath, ] = useLocation('/home');
   const [displayed, setDisplayed] = useState(false)
+  const [tab_path, ] = useLocation()
 
   const store = useStore();
   const tabs = store.getState().tabs;
@@ -16,9 +17,9 @@ function TabsNavbar() {
     // Updating who tab is selected every time the path changes
     Array.from(document.querySelector('.app-sidebar__nav-list').children).forEach((item) => {
       item.classList.remove('selected');
-      if (item.classList.contains(currentPath)) item.classList.add('selected')
+      if (item.classList.contains(getCurrentTabPath())) item.classList.add('selected')
     });
-  }, [currentPath]); // eslint-disable-line
+  }, [tab_path]);
 
   return (
     < >

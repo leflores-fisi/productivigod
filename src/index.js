@@ -13,7 +13,7 @@ const store = createStore(
 );
 // Getting the state
 
-const rerender = () => ReactDOM.render(
+const renderApp = () => ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
@@ -22,11 +22,11 @@ const rerender = () => ReactDOM.render(
   document.getElementById("root")
 );
   
-rerender();
+renderApp();
 
 store.subscribe(() => {
-  //console.log('New store value:', store.getState());
-  rerender();
+  console.log('New store value:', store.getState());
+  renderApp();
 });
 
 const getScreenSize = () => { //eslint-disable-line

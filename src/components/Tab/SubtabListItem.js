@@ -16,13 +16,14 @@ function SubtabListItem({ icon, title, path }) {
       {
         editing ?
         < >
-          <span className='subtab__icon'>{icon}</span>
+          <span className='icon'>{icon}</span>
           <input
-            className='subtab__title'
+            className='title'
             value={titleToEdit}
             onChange={(e) => setTitleToEdit(e.target.value)}
-            onClick={(e) => e.stopPropagation()}/>
-          <div className='subtab__options'>
+            onClick={(e) => e.stopPropagation()}
+          />
+          <div className='options'>
             <button onClick={(e) => {
               e.stopPropagation()
               setEditing(false)
@@ -41,9 +42,9 @@ function SubtabListItem({ icon, title, path }) {
         </>
         :
         < >
-          <span className='subtab__icon'>{icon}</span>
-          <div className='subtab__title'>{title}</div>
-          <div className='subtab__options'>
+          <span className='icon'>{icon}</span>
+          <div className='title'>{title}</div>
+          <div className='options'>
             <button onClick={(e) => {
               e.stopPropagation()
               setEditing(true)

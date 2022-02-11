@@ -26,10 +26,12 @@ function App() {
           </header>
 
           <div className='app-content'>
-            <main className='tab'>
-              <Route path={'/:tab/:subtab?'} component={Tab}/>
-            </main>
-            <GadgetsSidebar/>
+            <div className='app-content-wrapper'>
+              <main className='tab'>
+                <Route path={'/:tab/:subtab?'} component={Tab}/>
+              </main>
+              <GadgetsSidebar/>
+            </div>
           </div>
         </div>
       </div>

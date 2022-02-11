@@ -115,6 +115,20 @@ export const defaultAppSession = {
           content: 'My teacher dont never read a task'
         }
       ]
+    },
+    {
+      icon: '🌽',
+      title: 'Day planner',
+      path: '/day-planner',
+      type: 'DAILY_PLANNER_VIEWER',
+      content: {}
+    },
+    {
+      icon: '📅',
+      title: 'Soft calendar',
+      path: '/soft-calendar',
+      type: 'CALENDAR_VIEWER',
+      content: {}
     }
   ]
 }

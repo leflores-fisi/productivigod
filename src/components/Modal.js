@@ -46,8 +46,8 @@ function Modal({ displayed, setDisplayed }) {
           <div className='modal-inputs'>
             <div className='modal-preview'>
               <ul className='modal-preview__tabs-list'>
-                <li><button onClick={() => handleSelectTab('todolist')}>Task manager</button></li>
-                <li><button onClick={() => handleSelectTab('notebook')}>Notebook</button></li>
+                <li><button className='neutral' onClick={() => handleSelectTab('todolist')}>Task manager</button></li>
+                <li><button className='neutral' onClick={() => handleSelectTab('notebook')}>Notebook</button></li>
               </ul>
               <div className='preview-img'>
                 <img
@@ -57,7 +57,7 @@ function Modal({ displayed, setDisplayed }) {
             </div>
             <div className='modal-inputs__tab-title'>
               <div className='title'>Title</div>
-              <input onChange={handleTitleInput} value={titleInput}/>
+              <input className='text-input' onChange={handleTitleInput} value={titleInput}/>
             </div>
             <div className='modal-inputs__create-tab-btn'>
               <button onClick={handleTabAdding}><span>✨ </span>Create</button>

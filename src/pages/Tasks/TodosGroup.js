@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import TodoItem from './TodoItem';
-import TodoTextInput from './TodoTextInput';
+import AddTodoButton from './AddTodoButton';
 
 function TodosGroup({ title, todos }) {
 
@@ -13,8 +13,8 @@ function TodosGroup({ title, todos }) {
   return (
     <div className='todos-group'>
       <header className='todos-group__header' onClick={handleChange}>
-        <input type='checkbox' onChange={handleChange} checked={opened}/>
-        <div>{title}</div>
+        <div className='title'>{title}</div>
+        <AddTodoButton groupTitle={title}/>
       </header>
       {
         opened ?
@@ -33,9 +33,8 @@ function TodosGroup({ title, todos }) {
               })
             }
           </ul>
-          <TodoTextInput groupTitle={title}/>
         </>
-        : <div>TODOS DOES NOT EXIST IN TodosGroup.js</div>
+        : null // hidden todos
       }
     </div>
   )

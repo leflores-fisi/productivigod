@@ -6,32 +6,38 @@
   .todos-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     
     &__header {
+      position: relative;
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
 
       cursor: pointer;
-      background-color: rgb(233, 229, 222);
+      background-color: var(--color-scheme-primary);
+      color: var(--color-scheme-normal);
       border-radius: 5px;
-      height: 1.5rem;
+      padding: 0 15px;
+      height: 2rem;
 
-      input {
-        margin-right: 5px;
+      .title { 
+        color: var(--text-secondary)
       }
-    }
-
-    .todos-input {
-      text-align: center;
-      font-size: 0.8rem;
-      font-weight: 300;
-
-      background: none;
-      border: none;
-      cursor: pointer;
+      .add-todo-btn {
+        position: absolute;
+        right: 10px;
+        text-align: center;
+        font-size: 0.8rem;
+        font-weight: 300;
+    
+        color: inherit;
+        cursor: pointer;
+      }
+      &:hover {
+        color: var(--text-secondary) !important;
+      }
     }
 
     // The todos group list
@@ -48,16 +54,17 @@
         &__status {
           display: flex;
           align-items: center;
-
-          background-color: #c7d6c3;
+          
+          background-color: var(--green);
           border-radius: 4px;
-
+          
           height: 20px;
           min-width: 100px;
           max-width: 100px;
-          font-size: 0.8rem;
-
-          div {
+          font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
+          font-size: 0.75rem;
+          
+          .wrapper {
             margin: 0 auto;
             padding: 0 6px;
             line-height: 100%;
@@ -68,18 +75,32 @@
           display: flex;
           align-items: center;
           
-          border: none;
-          outline: none;
-          background: none;
-
           margin-left: 8px;
           height: 1.5rem;
           width: 100%;
+          font-family: 'Hind Siliguri', Arial, Helvetica;
           font-size: 1rem;
+          font-weight: 100;
+          color: var(--text-secondary);
         }
         input {
           margin-right: 5px;
-          resize: none;
+        }
+        .remove-todo-btn {
+          background-color: var(--color-scheme-normal);
+          color: var(--text-secondary);
+          outline: 1px solid var(--color-scheme-pastel);
+          transition: opacity 0.2s;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          cursor: pointer;
+          &.hidden {
+            opacity: 0;
+          }
+        }
+        &:last-child {
+          margin-bottom: 15px;
         }
       }
     }

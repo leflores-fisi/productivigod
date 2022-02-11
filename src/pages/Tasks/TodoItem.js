@@ -8,6 +8,7 @@ function TodoItem({ id, text, status, groupTitle }) {
 
   const [textContent, setTextContent] = useState(text)
   const [textOnFocus, setTextOnFocus] = useState('')
+  const [hovered, setHovered] = useState(false)
   const dispatch = useDispatch()
 
   // Functionalities
@@ -92,9 +93,11 @@ function TodoItem({ id, text, status, groupTitle }) {
   }
 
   return (
-    <li className='todo' id={id}>
+    <li className='todo' id={id}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}>
       <span className='todo__status'>
-        <div>{status}</div>  
+        <div className='wrapper'>{status}</div>  
       </span>
       <input
         className='todo__text'
@@ -103,10 +106,11 @@ function TodoItem({ id, text, status, groupTitle }) {
         onKeyDown={handleChange}
         onFocus={handleOnFocus}
         onBlur={handleOutFocus}
-      />
-      <button 
+      ></input>
+      <button
+        className={`remove-todo-btn${hovered? '' : ' hidden'}`}
         onClick={() => dispatch(removeTodo(id, groupTitle))}>
-          Remove
+          X
       </button>
     </li>
   )

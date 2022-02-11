@@ -7,7 +7,7 @@
   position: absolute;
   z-index: 10000;
 
-  background-color: #000000AB;
+  background-color: #00000080;
   height: 100vh;
   width: 100vw;
 
@@ -18,13 +18,14 @@
     width: 600px;
     height: 700px;
     border-radius: 5px;
-    background-color: rgb(235, 235, 235);
+    background-color: var(--background-primary);
     
     .modal-header {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       position: relative;
+      color: var(--text-primary);
       &__title {
         padding: 12px 25px;
         font-size: 1.3rem;
@@ -36,7 +37,7 @@
         bottom: 0;
         width: 100%;
         height: 1px;
-        background-color: rgb(246, 246, 246);
+        background-color: var(--color-scheme-pastel);
       }
     }
     .modal-content {
@@ -46,6 +47,7 @@
       justify-content: center;
       padding: 10px 0;
       width: 100%;
+      color: var(--text-secondary);
       
       .modal-description {
         align-self: flex-start;
@@ -67,13 +69,13 @@
             justify-content: space-evenly;
             align-items: center;
             width: 100%;
-            background-color: rgb(219, 215, 208);
+            background-color: var(--color-scheme-pastel);
           }
           .preview-img {
             display: flex;
             justify-content: center;
             padding: 10px;
-            background-color: rgb(224, 221, 218);
+            background-color: var(--color-scheme-normal);
             img {
               height: 250px;
             }
@@ -90,6 +92,17 @@
             margin: 5px 0;
             font-size: 1rem;
             font-weight: 100;
+            color: var(--text-primary);
+          }
+          .text-input {
+            padding: 6px;
+            outline: 1px var(--color-scheme-pastel) solid;
+            transition: outline 0.2s;
+            color: var(--text-secondary);
+
+            &:focus {
+              outline: 1px var(--color-scheme-saturated) solid;
+            }
           }
         }
         &__create-tab-btn {
@@ -98,12 +111,11 @@
           width: 180px;
           border-radius: 3px;
           bottom: 30px;
-          background-color: rgb(216, 191, 167);
+          background-color: var(--color-scheme-pastel);
           button {
+            color: var(--color-scheme-saturated);
             font-size: 1.2rem;
             font-weight: 300;
-            background: none;
-            border: none;
             width: 100%;
             height: 100%;
             transition: transform 0.4s ease-in-out;

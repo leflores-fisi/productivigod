@@ -5,7 +5,6 @@
 
   .subtab {
     display: flex;
-    flex-direction: row;
 
     position: relative;
     padding: 5px;
@@ -14,19 +13,63 @@
     font-size: 1rem;
     cursor: pointer;
 
-    &__icon {
+    .icon {
       width: 1.6rem;
     }
-    &__title {
-      text-decoration: rgb(121, 114, 113) underline 1px;
+    .title {
+      text-decoration: var(--color-scheme-saturated) underline 1px;
+      color: var(--text-secondary);
     }
-    &__options {
+    .options {
       position: absolute;
       right: 0;
     }
-
     &:hover {
-      background-color: rgb(231, 228, 223);
+      background-color: var(--background-secondary);
+    }
+  }
+
+  .new-subtab-input {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-scheme-primary);
+    position: relative;
+    padding: 6px 6px;
+    border-radius: 3px;
+
+    .edit-icon {
+      height: 100%;
+      
+      .preview {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.4rem;
+        height: 1.4rem;
+        font-size: 1rem;
+        outline: 1px var(--color-scheme-saturated) solid;
+        background-color: var(--color-scheme-pastel);
+        margin-right: 7px;
+        border-radius: 5px;
+      }
+    }
+    .text-input {
+      height: 100%;
+      width: 250px;
+      color: var(--text-secondary);
+      background-color: var(--color-scheme-pastel);
+      outline: 1px var(--color-scheme-saturated) solid;
+      height: 1.4rem;
+      padding: 2px 4px;
+      font-size: 0.9rem;
+      border-radius: 1px;
+    }
+    .options {
+      position: absolute;
+      right: 0;
+    }
+    &:hover {
+      background-color: var(--background-secondary);
     }
   }
 }

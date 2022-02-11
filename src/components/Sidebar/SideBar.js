@@ -6,12 +6,12 @@ import './styles/Sidebar.scss'
 
 function SideBar() {
 
+  const user = useUser();
   // Light theme by default
   const [theme, setTheme] = useTheme('light')
   // Main sidebar pinned by default
   const [hidden, setHidden] = useState(false)
   const [pinned, setPinned] = useState(true)
-  const user = useUser();
 
   const handlePinnedSwitcher = () => {
     setPinned((previous) => {
@@ -32,8 +32,8 @@ function SideBar() {
       <button className='sidebar-switcher' onClick={handlePinnedSwitcher}>📌</button>
       <div className='app-sidebar__panel'>
         <div className='user'>
-          <div>{user.name}</div>
-          <div>Status: <span>{user.status}</span></div>
+          <div className='user__name'>{user.name}</div>
+          <div className='user__status'>Status: <span>{user.status}</span></div>
         </div>
       </div>
       <TabsNavbar/>

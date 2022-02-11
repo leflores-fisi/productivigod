@@ -11,27 +11,34 @@
 
   transition: width 0.2s cubic-bezier(.52,.24,.48,1.07);
   height: 100vh;
-  background-color: var(--aside-primary);
+  background-color: var(--color-scheme-primary);
+  //border-right: 1px var(--color-scheme-secondary) solid;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   width: var(--aside-width);
 
   .sidebar-switcher {
     position: absolute;
     margin: 5px;
-    border: none;
-    background: none;
     cursor: pointer;
   }
   &__panel {
     display: flex;
     justify-content: center;
+    align-items: center;
 
-    height: 60px;
-    padding-top: 15px;
     transition: opacity 0.1s;
     overflow: hidden;
+    height: 65px;
+    //border-bottom: 1px var(--color-scheme-secondary) solid;
 
     .user {
       display: block;
+      &__name {
+        color: var(--text-primary);
+      }
+      &__status {
+        color: var(--text-secondary)
+      }
     }
   }
   &__nav-list {
@@ -52,6 +59,7 @@
 
     }
   }
+  // Mouse detecter
   &::after {
     content: "";
     position: absolute;

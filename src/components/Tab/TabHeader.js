@@ -6,12 +6,12 @@ function TabHeader({tab}) {
   
   return (
     <header className='tab__header'>
-      <div className='tab__header__title'>
-        <span>{tab.icon}</span>
-        <div>{tab.title}</div>
-        <span style={{fontSize: '0.8rem', fontWeight: 100, marginBottom: 2, marginLeft: 4}}>{path}</span>
+      <div className='icon'>{tab.icon}</div>
+      <div className='text-header'>
+        <div className='title'>{tab.title}</div>
+        <span className='route'>{path}</span>
       </div>
-      <div className='tab__header__desc'>
+      <div className='description'>
         {tab.desc || 'No description provided yet, but soon...'}
       </div>
     </header>

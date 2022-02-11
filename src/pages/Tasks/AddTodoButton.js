@@ -3,21 +3,23 @@ import { useDispatch } from 'react-redux'
 import { addTodo } from '../../redux/actions'
 import { nanoid } from 'nanoid'
 
-function TodoTextInput({ groupTitle }) {
+function AddTodoButton({ groupTitle }) {
 
   const dispatch = useDispatch()
 
   const handleClick = (e) => {
+    e.stopPropagation();
     dispatch(addTodo({
       status: 'Default',
       id: nanoid(), groupTitle
     }))
     // Focusing the new todo added
-    setTimeout(() => e.target.parentElement.children[1].lastChild.children[1].focus(), 0)
+    setTimeout(() => 
+    e.target.parentElement.parentElement.children[1].lastChild.children[1].focus(), 0)
   }
   return (
-    <button className='todos-input' onClick={handleClick}> + Add new task</button>
+    <button className='add-todo-btn' onClick={handleClick}> New todo </button>
   )
 }
 
-export default TodoTextInput
+export default AddTodoButton
