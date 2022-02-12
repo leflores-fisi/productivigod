@@ -1,0 +1,19 @@
+.data-overlay {
+
+  .actions-list-modal {
+    position: absolute;
+    left: 700px;
+    top: 200px;
+
+    .actions-list-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      gap: 3px;
+      padding: 2px;
+      background-color: var(--color-scheme-normal);
+    }
+  }
+}

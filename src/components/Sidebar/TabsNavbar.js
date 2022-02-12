@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from 'wouter';
 import { useStore } from "react-redux";
 import TabNavItem from "./TabNavItem";
-import Modal from '../Modal'
+import Modal from '../Overlay/Modal'
 import { getCurrentTabPath } from "../../utilities/funcs";
 
 function TabsNavbar() {

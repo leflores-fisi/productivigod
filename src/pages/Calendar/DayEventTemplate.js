@@ -8,7 +8,7 @@ export const DayEventTemplate = forwardRef((props, ref) => {
     < >
       <div className='day-event-template' ref={ref}>
         <header className='header'></header>
-        <div className='text'>Hello mohammed</div>
+        <div className='text'></div>
       </div>
     </>
   );

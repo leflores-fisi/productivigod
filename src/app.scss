@@ -23,7 +23,7 @@
 
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
 
     height: var(--header-height);
     background-color: var(--color-scheme-primary);
@@ -70,3 +70,4 @@
     
   }
 }
+

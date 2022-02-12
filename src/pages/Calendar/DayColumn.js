@@ -1,48 +1,72 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef, useContext } from 'react'
 import { nanoid } from 'nanoid'
 import moment from 'moment'
 import DayEvent from './DayEvent'
 import { DayEventTemplate } from './DayEventTemplate'
+import { ActionsMenuContext } from '../../context/LayoutContext'
 
 function DayColumn({ date, events }) {
 
   const today = moment().utc()
+  const actionsMenu = useContext(ActionsMenuContext)
   const columnRef = useRef()
   const templateRef = useRef()
-  const templateHeight = useRef()
+  const initialMouseY = useRef()
 
-  let handleMouseDown, handleMouseMove, handleMouseUp
+  let handleMouseDown, handleMouseMove, handleMouseUp, clearListeners
+
   handleMouseDown = (e) => {
-    window.addEventListener('mousemove', handleMouseMove)
-    window.addEventListener('mouseup', handleMouseUp)
     
-    let rect = columnRef.current.getBoundingClientRect()
-    let offset = e.clientY - rect.top
-
-    templateRef.current.style.top = `${offset}px`
-    templateHeight.current = offset
+    if (e.button === 0) {
+      window.addEventListener('mouseup', handleMouseUp)
+      window.addEventListener('mousemove', handleMouseMove)
+      let rect = columnRef.current.getBoundingClientRect()
+      let columnY = e.clientY - rect.top
+  
+      templateRef.current.style.top = `${columnY}px`
+      initialMouseY.current = columnY
+    }
+    else clearListeners()
   }
   handleMouseMove = (e) => {
     let rect = columnRef.current.getBoundingClientRect()
-    let offset = e.clientY - rect.top
-    templateRef.current.style.height = `${offset -  templateHeight.current}px`
+    let columnY = e.clientY - rect.top
+    if (columnY > initialMouseY.current) {
+      templateRef.current.style.height = `${columnY - initialMouseY.current}px`
+    }
+    else {
+      templateRef.current.style.top = `${columnY}px`
+      templateRef.current.style.height = `${initialMouseY.current - columnY}px`
+    }
   }
-  handleMouseUp = () => {
+  handleMouseUp = (e) => {
+    clearListeners()
+
+    console.log('removing listeners')
+    actionsMenu.visibility.setVisibility(true)
+    let rect = columnRef.current.getBoundingClientRect()
+    let columnPosX = rect.left + rect.width
+    let columnPosY = rect.top + (initialMouseY.current)
+
+    actionsMenu.position.setMousePos({
+      x: columnPosX,
+      y: columnPosY
+    })
+  }
+  clearListeners = () => {
     window.removeEventListener('mousedown', handleMouseDown)
     window.removeEventListener('mousemove', handleMouseMove)
     window.removeEventListener('mouseup', handleMouseUp)
-    //setOnInput(false)
-    console.log('removing listeners')
   }
+
   const init = () => {
     window.removeEventListener('mousedown', handleMouseDown)
     window.addEventListener('mousedown', handleMouseDown)
   }
-
   useLayoutEffect(() => {
-    columnRef.current.removeEventListener('mousedown',init)
-    columnRef.current.addEventListener('mousedown',init)
-  })
+    columnRef.current.removeEventListener('mousedown', init)
+    columnRef.current.addEventListener('mousedown', init)
+  }, []) // eslint-disable-line
 
   return (
     <div className='day-column'>
