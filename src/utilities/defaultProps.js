@@ -1,5 +1,31 @@
 import { nanoid } from "nanoid"
 
+export const defaultCalendarContent = {
+  days: [
+    {
+      date: '2022-02-11', // UTC DATE
+      events: [
+        {
+          range: [60, 120],
+          text: 'Hola soy una fecha importante'
+        },
+        {
+          range: [1000, 1200],
+          text: 'Get dog to park'
+        }
+      ]
+    },
+    {
+      date: '2022-01-11', // UTC DATE
+      events: [
+        {
+          range: [120, 1440],
+          text: 'Cute event'
+        }
+      ]
+    }
+  ]
+}
 export const defaultAppSession = {
 
   user: {
@@ -128,7 +154,7 @@ export const defaultAppSession = {
       title: 'Soft calendar',
       path: '/soft-calendar',
       type: 'CALENDAR_VIEWER',
-      content: {}
+      content: defaultCalendarContent
     }
   ]
 }

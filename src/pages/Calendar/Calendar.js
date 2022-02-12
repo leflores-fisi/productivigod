@@ -1,6 +1,7 @@
 //import dayjs from 'dayjs'
 import { useState } from 'react';
 import './Calendar.scss'
+import SideHours from './SideHours';
 import WeekTable from './WeekTable';
 
 function Calendar() {
@@ -9,20 +10,18 @@ function Calendar() {
 
   return (
     <div>
-      <div>Now in calendar</div>
-      <button className='neutral' onClick={() => setWeekOffset(prev => prev-1)}>{'<'}</button>
-      <button className='neutral' onClick={() => setWeekOffset(prev => prev+1)}>{'>'}</button>
-      <button className='neutral'>Week</button>
-      <button className='neutral'>Month</button>
-      <div className='calendar'>
-        <aside className='calendar__side-hours'>
+      <div className='calendar-options'>
+        <button className='neutral' onClick={() => setWeekOffset(prev => prev-1)}>{'<'}</button>
+        <button className='neutral' onClick={() => setWeekOffset(prev => prev+1)}>{'>'}</button>
+        {/* <button className='neutral'>Week</button>
+        <button className='neutral'>Month</button> */}
+      </div>
 
-        </aside>        
-        <div className='calendar__content'>
-          <div className='wrapper'>
-            <WeekTable weekOffset={weekOffset}/>
-          </div>
-        </div>        
+      <div className='calendar'>
+        <div className='wrapper'>
+          <SideHours/>      
+          <WeekTable weekOffset={weekOffset}/>
+        </div>     
       </div>
     </div>
   );

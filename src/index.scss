@@ -4,7 +4,7 @@
 
   // Sizing
   --header-height: 30px;
-  --aside-width: 300px;
+  --aside-width: 250px;
 
   --text-white-primary: #ffffff;
   --text-white-secondary: #dadada;
@@ -41,7 +41,9 @@
     --color-scheme-normal: #e2dacc;
     --color-scheme-pastel: #f8f0e7;
 
-    --green: #c7d6c3;
+    --green: #e4ebe2;
+    --red: #ebe2e2;
+    --blue: #e2e3eb;
   }
   &[theme="dark"] {
     --header-primary: #1f1f1f;
@@ -66,6 +68,8 @@
     --color-scheme-pastel: #322e38;
     
     --green: #789470;
+    --red: #a37171;
+    --blue: #434753;
   }
 }
 
