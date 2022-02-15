@@ -11,7 +11,8 @@ function AddTodoButton({ groupTitle }) {
     e.stopPropagation();
     dispatch(addTodo({
       status: 'Default',
-      id: nanoid(), groupTitle
+      id: nanoid(),
+      groupTitle: groupTitle
     }))
     // Focusing the new todo added
     setTimeout(() => 

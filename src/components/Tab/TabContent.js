@@ -7,25 +7,36 @@ import DailyPlanner from '../../pages/DailyPlanner/DailyPlanner'
 
 function TabContent({tab}) {
 
+  console.log(tab)
+
   return (
     < >
     {
-      tab.hasOwnProperty('subtabs') ?
+      tab.type === 'DASHBOARD_VIEWER' ?
 
         tab.subtabs.map(subtab => (
           <React.Fragment key={subtab.path}>
           {
-            tab.type === 'ASSIGNMENTS_VIEWER'?
+            subtab.type === 'ASSIGNMENTS_VIEWER'?
               <Route path={tab.path + subtab.path}>
                 <Assignments key={subtab.path} content={subtab.content}/>
               </Route>
             :
-            tab.type === 'NOTEBOOK_VIEWER'?
+            subtab.type === 'NOTEBOOK_VIEWER'?
               <Route path={tab.path + subtab.path}>
                 <MarkdownEditor key={subtab.path} content={subtab.content}/>
               </Route>
             :
-            null
+            subtab.type === 'DAILY_PLANNER_VIEWER'?
+              <Route path={tab.path + subtab.path}>
+                <DailyPlanner key={subtab.path} content={subtab.content}/>
+              </Route>
+            :
+            subtab.type === 'CALENDAR_VIEWER'?
+              <Route path={tab.path + subtab.path}>
+                <Calendar key={subtab.path} content={subtab.content}/>
+              </Route>
+            : null
           }
           </React.Fragment>
         ))
@@ -33,10 +44,16 @@ function TabContent({tab}) {
       < >
         {
           tab.type === 'DAILY_PLANNER_VIEWER'?
-            <DailyPlanner content={tab.content}/>
+            <DailyPlanner key={tab.path} content={tab.content}/>
           :
           tab.type === 'CALENDAR_VIEWER'?
-            <Calendar content={tab.content}/>
+            <Calendar key={tab.path} content={tab.content}/>
+          :
+          tab.type === 'ASSIGNMENTS_VIEWER'?
+            <Assignments key={tab.path} content={tab.content}/>
+          :
+          tab.type === 'NOTEBOOK_VIEWER'?
+            <MarkdownEditor key={tab.path} content={tab.content}/>
           :
           null
         }

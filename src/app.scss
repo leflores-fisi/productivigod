@@ -17,8 +17,8 @@
   
   .app-header {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
 
     position: sticky;
@@ -27,6 +27,22 @@
 
     height: var(--header-height);
     background-color: var(--color-scheme-primary);
+    
+    .time-hour {
+      display: flex;
+      align-items: flex-end;
+      padding-right: 15px;
+      font-family: consolas;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      filter: opacity(0.7);
+      span {
+        font-weight: 0;
+        padding-left: 5px;
+        font-size: 0.55rem;
+        line-height: 0.8;
+      }
+    }
     //background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     //filter: blur(0.5px) brightness(100%);
     //opacity: 0.8;
@@ -71,3 +87,57 @@
   }
 }
 
+.emoji-mart {
+  position: absolute;
+  background-color: var(--background-primary);
+  z-index: 10000;
+  top: 50%;
+  left: 50%;
+  .emoji-mart-bar {
+    background-color: var(--background-primary);
+  }
+  .emoji-mart-search {
+    background-color: var(--background-primary);
+  }
+  .emoji-mart-scroll {
+    background-color: var(--background-primary);
+  }
+  .emoji-mart-bar {
+    background-color: var(--background-primary);
+  }
+}
+
+.twemoji-normal {
+  display: block;
+  height: 1rem;
+  width: 1rem;
+  
+  // -webkit-filter:
+  // drop-shadow(0.6px 0.6px 0 black)
+  // drop-shadow(-0.6px 0.6px 0 black)
+  // drop-shadow(0.6px -0.6px 0 black)
+  // drop-shadow(-0.6px -0.6px 0 black);
+  // filter:
+  // drop-shadow(0.6px 0.6px 0 black)
+  // drop-shadow(-0.6px 0.6px 0 black)
+  // drop-shadow(0.6px -0.6px 0 black)
+  // drop-shadow(-0.6px -0.6px 0 black)
+  // saturate(0.6);
+  filter:saturate(0.8)
+}
+.twemoji-large {
+  height: 2rem;
+  width: 2rem;
+  margin: 5px;
+
+  // -webkit-filter:
+  // drop-shadow(1px 1px 0 black)
+  // drop-shadow(-1px 1px 0 black)
+  // drop-shadow(1px -1px 0 black)
+  // drop-shadow(-1px -1px 0 black);
+  // filter:
+  // drop-shadow(1px 1px 0 black)
+  // drop-shadow(-1px 1px 0 black)
+  // drop-shadow(1px -1px 0 black)
+  // drop-shadow(-1px -1px 0 black);
+}

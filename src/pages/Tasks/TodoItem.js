@@ -44,7 +44,7 @@ function TodoItem({ id, text, status, groupTitle }) {
           setTimeout(() => focusSibling('nextTodo'), 0)
         }
         break
-        
+      
       case 'Backspace':
         if (textContent === '' && thisTodo().previousElementSibling) {
           e.preventDefault();

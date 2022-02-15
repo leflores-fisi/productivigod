@@ -4,6 +4,7 @@ import SubtabsListview from "./SubtabsListview";
 import { getCurrentTabPath, userIsOnTab } from '../../utilities/funcs';
 import './styles/Tab.scss'
 import TabContent from "./TabContent";
+import { motion } from "framer-motion";
 
 function Tab() {
 
@@ -16,14 +17,19 @@ function Tab() {
       return (
         < >
           <TabHeader tab={tab}/>
-          <div className='tab__content'>
+          <motion.div
+            className='tab__content'
+            initial={{opacity: 0, y: 5}}
+            animate={{opacity: 1, y: 0}}
+            transition={{duration: 0.2, delay: 0.3}}
+          >
             {
-              (userIsOnTab() && tab.hasOwnProperty('subtabs'))?
+              (userIsOnTab() && tab.type === 'DASHBOARD_VIEWER')?
               <SubtabsListview tab={tab}/>
               : null
             }
             <TabContent tab={tab}/>
-          </div>
+          </motion.div>
         </>
       );
     }

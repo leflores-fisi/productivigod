@@ -38,6 +38,7 @@ function TabNavItem({path, icon = '❔', title}) {
           </>
           :
           < >
+            <span>—</span>
             <span className='icon'>{icon}</span>
             <div className='title'>{title}</div>
             <div className='options'>

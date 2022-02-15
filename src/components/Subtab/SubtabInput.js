@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { EmojiButton } from '@joeattardi/emoji-button';
 import { addSubtab } from '../../redux/actions';
-import { getCurrentTabPath } from "../../utilities/funcs";
 
 function SubtabInput({ setIsCreating }) {
 
@@ -10,20 +9,21 @@ function SubtabInput({ setIsCreating }) {
   const [icon, setIcon] = useState('')
   const [titleToEdit, setTitleToEdit] = useState('')
   const inputRef = useRef()
+  const iconTriggerRef = useRef()
 
   const handleSubtabAdding = () => {
     setIsCreating(false)
     dispatch(addSubtab({
       icon: icon,
       title: titleToEdit,
-      tab_path: getCurrentTabPath()
+      subtab_type: 'CALENDAR_VIEWER'
     }))
   }
   
   useEffect(() => {
     // https://github.com/joeattardi/emoji-button
-    const trigger = document.querySelector('#emoji-trigger');
-    const picker = new EmojiButton();
+    const trigger = iconTriggerRef.current;
+    const picker = new EmojiButton({style: 'twemoji'});
     trigger.addEventListener('click', () => picker.togglePicker(trigger));
     picker.on('emoji', selection => {
       // handle the selected emoji here
@@ -34,7 +34,7 @@ function SubtabInput({ setIsCreating }) {
 
   return (
     <div className='new-subtab-input'>
-      <button id='emoji-trigger' className='edit-icon'>
+      <button ref={iconTriggerRef} className='edit-icon'>
         <div className='preview'>{icon}</div>
       </button>
       <input

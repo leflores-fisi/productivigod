@@ -30,16 +30,6 @@
     overflow: hidden;
     height: 65px;
     //border-bottom: 1px var(--color-scheme-secondary) solid;
-
-    .user {
-      display: block;
-      &__name {
-        color: var(--text-primary);
-      }
-      &__status {
-        color: var(--text-secondary)
-      }
-    }
   }
   &__nav-list {
     display: flex;
@@ -52,7 +42,7 @@
   &.hidden {
     width: 0;
     transition-delay: 0;
-    .app-sidebar__panel, .app-sidebar__nav-list, .toggle-theme {
+    .app-sidebar__panel, .app-sidebar__nav-list, .toggle-theme, .add-tab-btn {
       transition-delay: 0;
       width: 0;
       opacity: 0;

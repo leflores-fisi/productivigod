@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useDispatch } from "react-redux";
 import { editSubtab, removeSubtab } from "../../redux/actions";
 import { getCurrentSubtabPath, getCurrentTabPath } from "../../utilities/funcs";
+import Twemoji from 'react-twemoji';
 
 function SubtabListItem({ icon, title, path }) {
 
@@ -16,7 +17,11 @@ function SubtabListItem({ icon, title, path }) {
       {
         editing ?
         < >
-          <span className='icon'>{icon}</span>
+          <Twemoji options={{ className: 'twemoji-normal' }}>
+            <span className='icon'>
+                {icon}
+            </span>
+          </Twemoji>
           <input
             className='title'
             value={titleToEdit}

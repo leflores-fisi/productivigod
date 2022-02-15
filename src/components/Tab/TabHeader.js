@@ -1,19 +1,18 @@
-import { useLocation } from "wouter";
+//import Twemoji from 'react-twemoji';
 
 function TabHeader({tab}) {
-
-  const [path, ] = useLocation();
   
   return (
     <header className='tab__header'>
-      <div className='icon'>{tab.icon}</div>
-      <div className='text-header'>
-        <div className='title'>{tab.title}</div>
-        <span className='route'>{path}</span>
+      <div className='tab-info'>
+        <div className='icon'>
+          <span>{tab.icon}</span>
+        </div>
+        <div className='text-header'>
+          <div className='title'>{tab.title}</div>
+        </div>
       </div>
-      <div className='description'>
-        {tab.desc || 'No description provided yet, but soon...'}
-      </div>
+      <div className='tab-cover'></div>
     </header>
   );
 }

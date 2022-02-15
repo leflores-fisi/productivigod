@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createStore } from "redux";
+import { ActionsMenuContextProvider } from './context/ActionsMenuContext';
 import { Provider } from 'react-redux';
 import App from "./App";
 import AppReducer from "./redux/AppReducer";
@@ -15,9 +16,11 @@ const store = createStore(
 
 const renderApp = () => ReactDOM.render(
   <React.StrictMode>
+    <ActionsMenuContextProvider>
     <Provider store={store}>
       <App />
     </Provider>
+    </ActionsMenuContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
@@ -26,6 +29,7 @@ renderApp();
 
 store.subscribe(() => {
   console.log('New store value:', store.getState());
+  //localStorage.setItem('appSession', JSON.stringify(store.getState()))
   renderApp();
 });
 

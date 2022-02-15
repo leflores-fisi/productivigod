@@ -1,0 +1,24 @@
+
+.app-sidebar__panel {
+
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 15px;
+
+  .user {
+    display: flex;
+    flex-direction: column;
+    &__name {
+      color: var(--text-primary);
+    }
+    &__status {
+      color: var(--text-secondary)
+    }
+  }
+  .divisor {
+    height: 100px;
+    width: 100px;
+    background-color: var(--color-scheme-normal);
+  }
+}

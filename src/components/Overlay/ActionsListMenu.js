@@ -1,21 +1,23 @@
 import React, { useContext } from 'react'
-import { ActionsMenuContext } from '../../context/LayoutContext'
+import { ActionsMenuContext } from '../../context/ActionsMenuContext'
 import './styles/ActionsList.scss'
 
 function ActionsListMenu() {
 
-  // const position = {top: event.y, left: event.x}
-  const options = ['New status', 'New event', 'Cancel']
   const menuContext = useContext(ActionsMenuContext)
 
   const coordinates = {
     top: `${menuContext.position.mousePos.y}px`,
     left: `${menuContext.position.mousePos.x}px`
-  } 
+  }
 
-  const selectOption = (option) => {
-    menuContext.selection.setUserSelection(option)
+  const handleOptionsSelected = (option) => {
+    // Putting the option on the context
+    menuContext.userSelection.current = option
+    // Hiding menu
     menuContext.visibility.setVisibility(false)
+    // Executing the callback function
+    menuContext.callback.current()
   }
 
   return (
@@ -24,8 +26,13 @@ function ActionsListMenu() {
         menuContext.visibility.isVisible ?
         <div className='actions-list-container'>
           {
-            options.map(option => (
-              <button key={option} className='neutral' onClick={() => selectOption(option)}>{option}</button>))
+            menuContext.options.getList.map(option => (
+              <button
+                key={option}
+                className='neutral'
+                onMouseDown={(e) => {e.stopPropagation()}}
+                onClick={() => handleOptionsSelected(option)}
+              >{option}</button>))
           }
         </div>
         : null

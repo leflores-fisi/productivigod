@@ -3,6 +3,11 @@
   display: flex;
   flex-direction: column;
 
+  .tab-options {
+    align-self: flex-end;
+    margin-bottom: 10px;
+  }
+
   .todos-group {
     display: flex;
     flex-direction: column;
@@ -18,7 +23,7 @@
       cursor: pointer;
       background-color: var(--color-scheme-primary);
       color: var(--color-scheme-normal);
-      border-radius: 5px;
+      border-radius: 1px;
       padding: 0 15px;
       height: 2rem;
 
@@ -42,7 +47,7 @@
 
     // The todos group list
     .todos-list {
-      padding: 5px 0 0 10px;
+      padding-top: 5px;
       
       .todo {
         display: flex;

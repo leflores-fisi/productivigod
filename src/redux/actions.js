@@ -40,10 +40,10 @@ export const removeTab = ({ tab_path }) => {
 }
 
 // Subtabs actions ----->
-export const addSubtab = ({ icon, title, tab_path }) => {
+export const addSubtab = ({ icon, title, subtab_type }) => {
   return {
     type: '@subtabs/add',
-    payload: { icon, title, tab_path }
+    payload: { icon, title, subtab_type }
   }
 }
 export const editSubtab = ({ new_icon, new_title, subtab_path }) => {
@@ -56,5 +56,43 @@ export const removeSubtab = ({ title, tab_path }) => {
   return {
     type: '@subtabs/remove',
     payload: { title, tab_path }
+  }
+}
+
+// Calendar actions ----->
+export const scheduleMood = ({ date, at, length, mood }) => {
+  return {
+    type: '@moods/schedule',
+    payload: { date, at, length, mood }
+  }
+}
+export const editMood = ({ date, at, length, mood }) => {
+  return {
+    type: '@moods/edit',
+    payload: { date, at, length, mood }
+  }
+}
+export const removeMood = ({ date, at }) => {
+  return {
+    type: '@moods/remove',
+    payload: { date, at }
+  }
+}
+export const scheduleEvent = ({ date, at, length, text }) => {
+  return {
+    type: '@events/schedule',
+    payload: { date, at, length, text }
+  }
+}
+export const editEvent = ({ at, length, text }) => {
+  return {
+    type: '@events/edit',
+    payload: { at, length, text }
+  }
+}
+export const removeEvent = ({ date, at }) => {
+  return {
+    type: '@events/remove',
+    payload: { date, at }
   }
 }

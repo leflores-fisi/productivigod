@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 function SideHours() {
 
   const hours = []
-  for (let i = 0; i <= 24; i++) {
+  for (let i = 0; i <= -1; i++) {
     hours.push(<span key={nanoid()} className='hour'>{i}</span>)
   }
 

@@ -19,7 +19,7 @@ export function getTodoById(id) {
 /**
  * @description If the user is on a tab, returns his path, otherwise returns an empty string.
  */
-export function getCurrentTabPath () {
+export function getCurrentTabPath() {
   let path  = window.location.pathname;
   // Example:
   // if path = '/tab'        -> true  (we are in a tab, returning the tab)
@@ -30,16 +30,21 @@ export function getCurrentTabPath () {
 /**
  * @description If the user is on a subtab, returns his path, otherwise returns null.
  */
-export function getCurrentSubtabPath (path = window.location.pathname) {
+export function getCurrentSubtabPath(path = window.location.pathname) {
   if (path.indexOf('/') === path.lastIndexOf('/')) return null;
   else return path.substring(path.lastIndexOf('/'))
 }
 
-export function userIsOnTab () {
+export function userIsOnTab() {
   let path = window.location.pathname
   if (path.indexOf('/') === path.lastIndexOf('/')) return true;
   else return false
-} 
+}
+export function userIsOnSubtab() {
+  let path = window.location.pathname
+  if (path.indexOf('/') === path.lastIndexOf('/')) return false;
+  else return true
+}
 
 /**
  * @description Pure function that generates a valid web path based of a given word.
@@ -47,3 +52,11 @@ export function userIsOnTab () {
 export const generatePathByName = (name) => {
   return '/' + name.toLowerCase().split(' ').filter(word => word.trim()).join('-')
 };
+
+/**
+ * @example
+ * pxToNumber('69px') // returns 69
+ */
+export const pxToNumber = (value) => {
+  return Number(value.replace('px', ''))
+}

@@ -1,0 +1,53 @@
+.day-event {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: absolute;
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-family: 'Nunito Sans', monospace;
+  border: 1px solid var(--background-secondary);
+  width: 100%;
+  // height: putted by code
+  flex-shrink: 0;
+  overflow: hidden;
+  
+  //header {height: 15px;width: 100%;}
+  .textContent {
+    word-break: break-all;
+    background-color: var(--blue);
+    padding: 10px 5px;
+    height: 150%;
+    width: 100%;
+  }
+}
+
+.day-event-template {
+  display: flex;
+
+  position: absolute;
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-family: 'Nunito Sans', monospace;
+  border: 1px solid var(--background-secondary);
+  width: 100%;
+  // height: putted by code
+  flex-shrink: 0;
+  overflow: hidden;
+  height: 0;
+  
+  //header {height: 15px;width: 100%;}
+  .textContent {
+    background-color: var(--green);
+    padding: 10px 5px;
+    height: 100%;
+    width: 100%;
+
+    // Unselectable text
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+  }
+}

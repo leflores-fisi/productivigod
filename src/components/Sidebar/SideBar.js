@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTheme } from '../../hooks/useTheme'
 import { useUser } from '../../hooks/useUser'
+import UserPanel from './UserPanel'
 import TabsNavbar from './TabsNavbar'
 import './styles/Sidebar.scss'
 
@@ -30,15 +31,10 @@ function SideBar() {
       onMouseEnter={() => {if (!pinned) setHidden(false)}}
       >
       <button className='sidebar-switcher' onClick={handlePinnedSwitcher}>📌</button>
-      <div className='app-sidebar__panel'>
-        <div className='user'>
-          <div className='user__name'>{user.name}</div>
-          <div className='user__status'>Status: <span>{user.status}</span></div>
-        </div>
-      </div>
+      <UserPanel user={user}/>
       <TabsNavbar/>
       <button
-        className='toggle-theme' 
+        className='toggle-theme'
         onClick={() => setTheme(theme === 'dark'? 'light' : 'dark')}>{theme}
       </button>
     </aside>

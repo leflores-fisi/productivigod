@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import './DayEvent.scss'
+import './styles/DayEvent.scss'
 
 export const DayEventTemplate = forwardRef((props, ref) => {
 
@@ -8,7 +8,7 @@ export const DayEventTemplate = forwardRef((props, ref) => {
     < >
       <div className='day-event-template' ref={ref}>
         <header className='header'></header>
-        <div className='text'></div>
+        <div className='textContent'></div>
       </div>
     </>
   );

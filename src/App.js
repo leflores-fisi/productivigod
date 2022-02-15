@@ -1,12 +1,12 @@
-import SideBar from './components/Sidebar/SideBar';
-import Tab from './components/Tab/Tab';
-import GadgetsSidebar from './components/GadgetsSidebar'
 import { useEffect } from 'react';
 import { useStore } from 'react-redux';
 import { Route } from 'wouter';
+import SideBar from './components/Sidebar/SideBar';
+import Tab from './components/Tab/Tab';
+//import GadgetsSidebar from './components/GadgetsSidebar'
 import AppOverlay from './components/Overlay/AppOverlay';
-import { ActionsMenuContextProvider } from './context/LayoutContext';
 import './App.scss';
+import AppHeader from './components/AppHeader';
 
 function App() {
 
@@ -20,27 +20,23 @@ function App() {
   }, []); // eslint-disable-line
 
   return (
-    <ActionsMenuContextProvider>
       <div className='app'>
         <div className='app-wrapper'>
           <SideBar/>
           <div className='app__container'>
-            <header className='app-header'>
-            </header>
-
+            <AppHeader/>
             <div className='app-content'>
               <div className='app-content-wrapper'>
                 <main className='tab'>
                   <Route path={'/:tab/:subtab?'} component={Tab}/>
                 </main>
-                <GadgetsSidebar/>
+                {/* <GadgetsSidebar/> */}
               </div>
             </div>
           </div>
         </div>
         <AppOverlay/>
       </div>
-    </ActionsMenuContextProvider>
   );
 }
 

@@ -1,12 +1,9 @@
 import moment from 'moment'
 import { nanoid } from 'nanoid'
-import { useCalendar } from '../../hooks/useCalendar'
 import DayColumn from './DayColumn'
 
 
-function WeekTable({ weekOffset }) {
-
-  const userCalendar = useCalendar()
+function WeekTable({ weekOffset, calendarContent }) {
 
   // Dates objects
   const reference = moment().utc().add(weekOffset, 'week') // now
@@ -22,15 +19,15 @@ function WeekTable({ weekOffset }) {
   }
 
   return (
-    < >
+    <div className='week-table'>
       {
         weekCalendar.map(weekDay => {
           // Finding in the userCalendar if has an event that matches a calendar day of the app
-          let matched_day = userCalendar.days.find(userDay => moment.utc(userDay.date).isSame(weekDay, 'day'))
+          let matched_day = calendarContent.days.find(userDay => moment.utc(userDay.date).isSame(weekDay, 'day'))
           return <DayColumn key={nanoid()} date={weekDay} events={ matched_day ? matched_day.events : null}/>
         })
       }
-    </>
+    </div>
   );
 }
 

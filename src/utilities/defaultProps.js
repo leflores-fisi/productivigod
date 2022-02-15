@@ -3,23 +3,26 @@ import { nanoid } from "nanoid"
 export const defaultCalendarContent = {
   days: [
     {
-      date: '2022-02-11', // UTC DATE
+      date: '2022-02-14', // UTC DATE
       events: [
         {
-          range: [60, 120],
-          text: 'Hola soy una fecha importante'
+          at: 60,
+          length: 60,
+          text: 'San valentin'
         },
         {
-          range: [1000, 1200],
+          at: 180,
+          length: 60,
           text: 'Get dog to park'
         }
       ]
     },
     {
-      date: '2022-01-11', // UTC DATE
+      date: '2022-02-11', // UTC DATE
       events: [
         {
-          range: [120, 1440],
+          at: 60,
+          length: 1440,
           text: 'Cute event'
         }
       ]
@@ -34,65 +37,21 @@ export const defaultAppSession = {
   },
   tabs: [
     {
-      icon: '☕',
-      title: 'Tasks',
-      path: '/tasks',
-      type: 'ASSIGNMENTS_VIEWER',
+      icon: '📁',
+      title: 'Project',
+      path: '/productivigod',
+      type: 'DASHBOARD_VIEWER',
       subtabs: [
         {
-          icon: '🎒',
-          title: 'College',
-          path: '/college',
+          icon: '🐢',
+          title: 'Todos',
+          path: '/tasks',
+          type: 'ASSIGNMENTS_VIEWER',
           content: {
             design: 'BOARD',
             groups: [
               {
-                title: 'Less than 2 minutes',
-                todos: [
-                  {
-                    id: nanoid(),
-                    text: 'Test the app',
-                    status: 'Completed'
-                  },
-                  {
-                    id: nanoid(),
-                    text: 'See this',
-                    status: 'Uncompleted'
-                  }
-                ]
-              },
-              {
-                title: 'Less than half hour',
-                todos: [
-                  {
-                    id: nanoid(),
-                    text: 'Programming like a goat',
-                    status: 'Completed'
-                  }
-                ]
-              },
-              {
-                title: 'More than half hour',
-                todos: [
-                  {
-                    id: nanoid(),
-                    text: 'Nothing yet but soon',
-                    status: 'Uncompleted'
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          icon: '💼',
-          title: 'Work',
-          path: '/work',
-          content: {
-            design: 'LIST',
-            groups: [
-              {
-                title: 'Ideas',
+                title: 'To do',
                 todos: [
                   {
                     id: nanoid(),
@@ -102,45 +61,103 @@ export const defaultAppSession = {
                 ]
               },
               {
-                title: 'Dead ideas',
+                title: 'Today',
                 todos: [
                   {
                     id: nanoid(),
-                    text: 'Say welcome to the frustred dreams',
+                    text: 'Take the dog to the park',
+                    status: 'Uncompleted'
+                  },
+                  {
+                    id: nanoid(),
+                    text: 'Buy some milk',
+                    status: 'Uncompleted'
+                  }
+                ]
+              },
+              {
+                title: 'Doing',
+                todos: [
+                  {
+                    id: nanoid(),
+                    text: 'Coding',
                     status: 'Completed'
+                  }
+                ]
+              },
+              {
+                title: 'Done',
+                todos: [
+                  {
+                    id: nanoid(),
+                    text: 'Sleep',
+                    status: 'Completed'
+                  }, 
+                  {
+                    id: nanoid(),
+                    text: 'Buy milk and cheese',
+                    status: 'Done'
                   }
                 ]
               }
             ]
           }
+        },
+        {
+          icon: '👾',
+          title: 'Links savior',
+          path: '/links-savior',
+          type: 'NOTEBOOK_VIEWER',
+          content: 'Links links links links'
+        },
+        {
+          icon: '📅',
+          title: 'Soft calendar subtab',
+          path: '/soft-calendar-subtab',
+          type: 'CALENDAR_VIEWER',
+          content: {
+            days: []
+          }
         }
       ]
+    },
+    {
+      icon: '☕',
+      title: 'Tasks',
+      path: '/tasks',
+      type: 'ASSIGNMENTS_VIEWER',
+      content: {
+        design: 'LIST',
+        groups: [
+          {
+            title: 'Ideas',
+            todos: [
+              {
+                id: nanoid(),
+                text: 'Need to implement login',
+                status: 'Uncompleted'
+              }
+            ]
+          },
+          {
+            title: 'Dead ideas',
+            todos: [
+              {
+                id: nanoid(),
+                text: 'Say welcome to the frustred dreams',
+                status: 'Completed'
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       icon: '📖',
       title: 'Notebook',
       path: '/notebook',
       type: 'NOTEBOOK_VIEWER',
-      subtabs: [
-        {
-          icon: '💡',
-          title: 'Ideas',
-          path: '/ideas',
-          content: 'I have a dream, you promise you are dont gonna laugh?'
-        },
-        {
-          icon: '🐢',
-          title: 'Personal',
-          path: '/personal',
-          content: 'Personally, I love this turtle'
-        },
-        {
-          icon: '💻',
-          title: 'Class notes',
-          path: '/notes',
-          content: 'My teacher dont never read a task'
-        }
-      ]
+      content: 'Personally, I love this turtle'
     },
     {
       icon: '🌽',

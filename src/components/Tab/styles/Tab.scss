@@ -1,52 +1,53 @@
 .tab {
 
   &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: 2.5rem 1fr;
-    grid-template-rows: 42px 15px;
-    border-bottom: 1px var(--color-scheme-secondary) solid;
-    background-color: var(--background-primary);
-    padding: 0.6rem 0 1rem 1.5rem;
     position: sticky;
     top: var(--header-height);
     z-index: 1000;
-
-    .icon {
-      font-size: 1.5rem;
-      align-self: center;
-      justify-self: center;
-    }
-    .text-header {
+    
+    .tab-info {
       display: flex;
-      align-items: flex-end;
-      grid-row: 1 / 2;
-      grid-column: 2 / 3;
-      align-self: center;
-      
-      .title {
-        font-family: 'Nunito Sans';
-        color: var(--text-primary);
-        font-weight: 1000;
-        font-size: 1.3rem;
+      border-bottom: 1px var(--color-scheme-secondary) solid;
+      background-color: var(--background-primary);
+      padding: 0.35rem 1rem;
+      .icon {
+        display: flex;
+        font-size: 1rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        justify-content: center;
+        align-self: center;
+        justify-self: center;
+        background-color: var(--color-scheme-pastel);
+        border-radius: 50%;
+        span {
+          align-self: center;
+        }
       }
-      .route {
-        font-size: 0.8rem;
-        color: var(--text-secondary);
-        font-weight: 100;
-        margin-left: 4px;
+      .text-header {
+        display: flex;
+        padding-left: 10px;
+        align-items: flex-end;
+        align-self: center;
+        
+        .title {
+          font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+          color: var(--text-primary);
+          font-weight: 400;
+          font-size: 1rem;
+        }
       }
     }
-    .description {
-      font-size: 0.8em;
-      color: var(--text-secondary);
-      grid-row: 2 / 3;
-      grid-column: 2 / 3;
-      align-self: center;
+    .tab-cover {
+      background-color: var(--blue);
+      height: 100px;
     }
-
   }
   &__content {
-    padding: 0 calc(1.5rem + 30px);
+    padding: 0 calc(8rem + 30px);
   }
 }

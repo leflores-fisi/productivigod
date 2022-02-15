@@ -35,7 +35,7 @@ function TabsNavbar() {
         })
       }
       </ul>
-      <button onClick={() => setDisplayed(true)}>+ Add tab</button>
+      <button className='add-tab-btn neutral' onClick={() => setDisplayed(true)}>+ Add tab</button>
     </>
   );
 }
