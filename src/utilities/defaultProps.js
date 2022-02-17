@@ -148,7 +148,23 @@ export const defaultAppSession = {
                 status: 'Completed'
               }
             ]
-          }
+          },
+          {
+            title: 'Canceled1',
+            todos: []
+          },
+          {
+            title: 'Canceled2',
+            todos: []
+          },
+          {
+            title: 'Canceled3',
+            todos: []
+          },
+          {
+            title: 'Canceled4',
+            todos: []
+          },
         ]
       }
     },

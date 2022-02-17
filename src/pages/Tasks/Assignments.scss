@@ -1,114 +1,231 @@
-
+// The groups has two designs: BOARD and LIST (default)
 .assignments {
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   .tab-options {
     align-self: flex-end;
     margin-bottom: 10px;
   }
 
-  .todos-group {
+  // List design
+  .assignments-groups.list {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
-    
-    &__header {
-      position: relative;
+
+    .todos-group {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-
-      cursor: pointer;
-      background-color: var(--color-scheme-primary);
-      color: var(--color-scheme-normal);
-      border-radius: 1px;
-      padding: 0 15px;
-      height: 2rem;
-
-      .title { 
-        color: var(--text-secondary)
-      }
-      .add-todo-btn {
-        position: absolute;
-        right: 10px;
-        text-align: center;
-        font-size: 0.8rem;
-        font-weight: 300;
-    
-        color: inherit;
-        cursor: pointer;
-      }
-      &:hover {
-        color: var(--text-secondary) !important;
-      }
-    }
-
-    // The todos group list
-    .todos-list {
-      padding-top: 5px;
+      flex-direction: column;
+      margin-bottom: 10px;
       
-      .todo {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      &__header {
         position: relative;
-        padding: 4px 0;
-        
-        &__status {
-          display: flex;
-          align-items: center;
-          
-          background-color: var(--green);
-          border-radius: 4px;
-          
-          height: 20px;
-          min-width: 100px;
-          max-width: 100px;
-          font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
-          font-size: 0.75rem;
-          
-          .wrapper {
-            margin: 0 auto;
-            padding: 0 6px;
-            line-height: 100%;
-            word-break: break-all;
-          }
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+  
+        border-bottom: 1px solid var(--color-scheme-primary);
+        color: var(--color-scheme-normal);
+        border-radius: 1px;
+        padding: 0 15px;
+        height: 2rem;
+  
+        .title { 
+          color: var(--text-secondary)
         }
-        &__text {
-          display: flex;
-          align-items: center;
-          
-          margin-left: 8px;
-          height: 1.5rem;
-          width: 100%;
-          font-family: 'Hind Siliguri', Arial, Helvetica;
-          font-size: 1rem;
-          font-weight: 100;
-          color: var(--text-secondary);
-        }
-        input {
-          margin-right: 5px;
-        }
-        .remove-todo-btn {
-          background-color: var(--color-scheme-normal);
-          color: var(--text-secondary);
-          outline: 1px solid var(--color-scheme-pastel);
-          transition: opacity 0.2s;
-          width: 20px;
-          height: 20px;
-          border-radius: 50%;
+        .add-todo-btn {
+          position: absolute;
+          right: 10px;
+          text-align: center;
+          font-size: 0.8rem;
+          font-weight: 300;
+      
+          color: inherit;
           cursor: pointer;
-          &.hidden {
-            opacity: 0;
-          }
         }
-        &:last-child {
-          margin-bottom: 15px;
+        &:hover {
+          color: var(--text-secondary) !important;
+        }
+      }
+  
+      // The todos group list
+      .todos-list {
+        padding-top: 5px;
+        
+        .todo {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+          padding: 4px 0;
+          
+          &__status {
+            display: flex;
+            align-items: center;
+            
+            background-color: var(--green);
+            border-radius: 4px;
+            
+            height: 20px;
+            min-width: 100px;
+            max-width: 100px;
+            font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
+            font-size: 0.75rem;
+            
+            .wrapper {
+              margin: 0 auto;
+              padding: 0 6px;
+              line-height: 100%;
+              word-break: break-all;
+            }
+          }
+          &__text {
+            display: flex;
+            align-items: center;
+            
+            margin-left: 8px;
+            height: 1.5rem;
+            width: 100%;
+            font-family: 'Hind Siliguri', Arial, Helvetica;
+            font-size: 1rem;
+            font-weight: 100;
+            color: var(--text-secondary);
+          }
+          input {
+            margin-right: 5px;
+          }
+          .remove-todo-btn {
+            background-color: var(--color-scheme-normal);
+            color: var(--text-secondary);
+            outline: 1px solid var(--color-scheme-pastel);
+            transition: opacity 0.2s;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            &.hidden {
+              opacity: 0;
+            }
+          }
+          &:last-child {
+            margin-bottom: 15px;
+          }
         }
       }
     }
+  }
+  // Board design
+  .assignments-groups.board {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    height: 100%;
 
+    .todos-group {
+      display: flex;
+      flex-direction: column;
+      margin-right: 10px;
+      min-width: 300px;
+      
+      &__header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+  
+        background-color: var(--color-scheme-primary);
+        color: var(--color-scheme-normal);
+        border-radius: 1px;
+        padding: 0 15px;
+        height: 2rem;
+  
+        .title { 
+          color: var(--text-secondary)
+        }
+        .add-todo-btn {
+          position: absolute;
+          right: 0;
+          padding-right: 10px;
+          text-align: center;
+          font-size: 0.8rem;
+          font-weight: 300;
+          
+          height: 100%;
+          color: inherit;
+          cursor: pointer;
+        }
+        &:hover {
+          color: var(--text-secondary) !important;
+        }
+      }
+  
+      // The todos group list
+      .todos-list {
+        padding-top: 5px;
+        
+        .todo {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+          padding: 4px 0;
+          
+          &__status {
+            display: flex;
+            align-items: center;
+            
+            background-color: var(--green);
+            border-radius: 4px;
+            
+            height: 20px;
+            min-width: 100px;
+            max-width: 100px;
+            font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
+            font-size: 0.75rem;
+            
+            .wrapper {
+              margin: 0 auto;
+              padding: 0 6px;
+              line-height: 100%;
+              word-break: break-all;
+            }
+          }
+          &__text {
+            display: flex;
+            align-items: center;
+            
+            margin-left: 8px;
+            height: 1.5rem;
+            width: 100%;
+            font-family: 'Hind Siliguri', Arial, Helvetica;
+            font-size: 1rem;
+            font-weight: 100;
+            color: var(--text-secondary);
+          }
+          input {
+            margin-right: 5px;
+          }
+          .remove-todo-btn {
+            background-color: var(--color-scheme-normal);
+            color: var(--text-secondary);
+            outline: 1px solid var(--color-scheme-pastel);
+            transition: opacity 0.2s;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            &.hidden {
+              opacity: 0;
+            }
+          }
+          &:last-child {
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
   }
 }
+

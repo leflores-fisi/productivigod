@@ -7,8 +7,6 @@ import DailyPlanner from '../../pages/DailyPlanner/DailyPlanner'
 
 function TabContent({tab}) {
 
-  console.log(tab)
-
   return (
     < >
     {

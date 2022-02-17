@@ -1,29 +1,31 @@
-import { motion } from 'framer-motion';
 import TodosGroup from './TodosGroup';
 import './Assignments.scss'
+import { useState } from 'react';
 
 function Assignments({ content }) {
 
+  const [design, setDesign] = useState(content.design)
+  const handleDesignChange = () => {
+    setDesign(prev => prev === 'LIST' ? 'BOARD' : 'LIST')
+  }
+
   return (
-    <motion.div
-      className='assignments'
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      transition={{duration: 0.2}}
-    >
+    <div className={`assignments`}>
       <div className='tab-options'>
-        <button className='neutral'>Design</button>
+        <button className='neutral' onClick={handleDesignChange}>{design.toLowerCase()}</button>
         <button className='neutral'>Tasks bullet</button>
       </div>
-      {
-        content.groups.map(group => {
-          return <TodosGroup
-            key={group.title}
-            title={group.title}
-            todos={group.todos}/>
-        })
-      }
-    </motion.div>
+      <div className={`assignments-groups ${design.toLowerCase()}`}>
+        {
+          content.groups.map(group => {
+            return <TodosGroup
+              key={group.title}
+              title={group.title}
+              todos={group.todos}/>
+          })
+        }
+      </div>
+    </div>
   );
 }
 export default Assignments;
